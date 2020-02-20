@@ -21,21 +21,14 @@ public class ModelRepairSimple extends Model {
     @Override
     protected void _solve() throws Exception {
         //solve the relaxed problem
-        ModelRelaxed relax = new ModelRelaxed(this);
-        //Model relax = new Model_b_heuristic(dataFile);
-        Solution relaxedSol = relax.solve();
-        
+        Model relax = new ModelRelaxed(this);        
+        relax.solve();
+
         //repair
-        Solution repairedSol = new BipartiteMatchingRepair(relax).getSolution();
-        solutions.add(repairedSol);
-                
-        /*
-        Model3D exact = new Model3D(this);
-        exact.addInitialSolution(repairedSol);
-        exact.setTimeLimit(60);
-        Solution exactSol = exact.solve();
-        solutions.add(exactSol);
-        */
+        Solution sol1 = new BipartiteMatchingRepair(relax, 1).getSolution();
+        Solution sol2 = new BipartiteMatchingRepair(relax, 2).getSolution();
+
+        solutions.add(sol1.totalCost() < sol2.totalCost() ? sol1 : sol2);
     }
 
 }

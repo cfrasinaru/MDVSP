@@ -6,18 +6,19 @@ package ro.uaic.info.mdvsp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
  * @author Cristian Frăsinaru
  */
 public class Solution {
-
+    
     private final Model model;
     private final int n; //trips
     private final int m; //depots
     private final int[][] cost;
-
+    
     private final int x[][];
     private List<Tour> tours;
 
@@ -69,6 +70,14 @@ public class Solution {
      *
      * @return
      */
+    public List<Tour> getBadTours() {
+        return getTours().stream().filter(t -> t.isBad()).collect(Collectors.toList());
+    }
+
+    /**
+     *
+     * @return
+     */
     public int[][] getMatrix() {
         return x;
     }
@@ -95,7 +104,7 @@ public class Solution {
         }
         return total;
     }
-
+    
     private void createTours() {
         this.tours = new ArrayList<>();
         boolean visited[] = new boolean[n + m];
@@ -122,7 +131,7 @@ public class Solution {
             }
         }
     }
-
+    
     private int findNext(int i) {
         if (i < m) {
             return -1;
@@ -183,8 +192,20 @@ public class Solution {
         getTours();
         StringBuilder sb = new StringBuilder();
         for (Tour tour : getTours()) {
-            sb.append(tour).append("\n");
+            sb.append(tourToString(tour)).append("\n");
         }
+        return sb.toString();
+    }
+    
+    private String tourToString(Tour tour) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(tour.get(0));
+        for (int i = 1; i < tour.size(); i++) {
+            int t0 = tour.get(i - 1);
+            int t1 = tour.get(i);
+            sb.append("--(").append(cost[t0][t1]).append(")-->").append(t1);
+        }
+        //sb.append(" [").append(id).append("]");
         return sb.toString();
     }
 
@@ -204,7 +225,7 @@ public class Solution {
         }
         return sb.toString();
     }
-
+    
     public String usedVehiclesToString() {
         int nbv[] = getUsedVehicles();
         StringBuilder sb = new StringBuilder();
@@ -251,9 +272,9 @@ public class Solution {
                 throw new InvalidSolutionException("Bad tour " + t);
             }
         }
-
+        
     }
-
+    
     private int rowSum(int i) {
         int sum = 0;
         for (int j = 0; j < m + n; j++) {
@@ -261,7 +282,7 @@ public class Solution {
         }
         return sum;
     }
-
+    
     private int colSum(int i) {
         int sum = 0;
         for (int j = 0; j < m + n; j++) {
@@ -269,5 +290,5 @@ public class Solution {
         }
         return sum;
     }
-
+    
 }

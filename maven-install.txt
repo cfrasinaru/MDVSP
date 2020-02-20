@@ -1,3 +1,4 @@
 install:install-file  -Dfile=lib\gurobi.jar -DgroupId=gurobi -DartifactId=gurobi -Dversion=8.1 -Dpackaging=jar
+install:install-file  -Dfile=lib\gurobi.jar -DgroupId=gurobi -DartifactId=gurobi -Dversion=9.0 -Dpackaging=jar
 
 install:install-file  -Dfile=lib\algs4-1.0.4.jar -DgroupId=alg4s -DartifactId=alg4s -Dversion=1.0.4 -Dpackaging=jar

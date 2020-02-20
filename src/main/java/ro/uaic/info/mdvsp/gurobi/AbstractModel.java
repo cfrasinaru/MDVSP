@@ -28,7 +28,7 @@ public abstract class AbstractModel extends Model {
     protected void start() throws GRBException {
         // Create empty environment, set options, and start
         env = new GRBEnv(true);
-        env.set(GRB.StringParam.LogFile, "mdvsp.log");        
+        env.set(GRB.StringParam.LogFile, "mdvsp.log");
         env.set(GRB.IntParam.OutputFlag, outputEnabled ? 1 : 0);
         env.start();
 
@@ -87,7 +87,9 @@ public abstract class AbstractModel extends Model {
             extractSolution();
         } else {
             int ns = model.get(GRB.IntAttr.SolCount);
-            System.out.println("Solutions found: " + ns);
+            if (outputEnabled) {
+                System.out.println("Solutions found: " + ns);
+            }
             extractSolutions();
         }
     }

@@ -109,10 +109,15 @@ public class Tour extends ArrayList<Integer> implements Comparable<Tour> {
         return toString("->");
     }
 
+    /**
+     *
+     * @param delimiter
+     * @return
+     */
     public String toString(String delimiter) {
         StringBuilder sb = new StringBuilder();
         sb.append(get(0));
-        for (int i = 1; i < size(); i++) {
+        for (int i = 1; i < size(); i++) {            
             sb.append(delimiter).append(get(i));
         }
         //sb.append(" [").append(id).append("]");

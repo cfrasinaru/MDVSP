@@ -13,6 +13,7 @@ import java.util.Properties;
  */
 public class Config {
 
+    private static String dataPath;
     private static String algorithm;
     private static Properties props;
     private static Boolean outputEnabled;
@@ -26,6 +27,8 @@ public class Config {
     private static Integer tripsMax;
     private static Integer instanceMin;
     private static Integer instanceMax;
+    
+    private static Double clusterFactor;
 
     static {
         init();
@@ -43,6 +46,17 @@ public class Config {
         }
     }
 
+    /**
+     *
+     * @return
+     */
+    public static String getDataPath() {
+        if (dataPath == null) {
+            dataPath = props.getProperty("data", "../MDVSP-data/");
+        }
+        return dataPath;
+    }
+    
     /**
      *
      * @return
@@ -86,6 +100,18 @@ public class Config {
         }
         return timeLimit;
     }
+    
+    /**
+     *
+     * @return
+     */
+    public static double getClusterFactor() {
+        if (clusterFactor == null) {
+            clusterFactor = Double.parseDouble(props.getProperty("clusterFactor", "0"));
+        }
+        return clusterFactor;
+    }
+    
 
     public static int getDepotsMin() {
         if (solve == null) {

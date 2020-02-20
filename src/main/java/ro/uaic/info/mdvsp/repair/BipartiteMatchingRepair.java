@@ -25,51 +25,35 @@ import ro.uaic.info.mdvsp.Tour;
 public class BipartiteMatchingRepair {
 
     private final Model model;
-    private int m, n;
+    private final int m;
+    private final int n;
     private final int cost[][];
-    private List<int[][]> repaired = new ArrayList<>();
+    private final int repairType; //1 or 2
 
-    private int[] vehicleCount; //counter, transient
-
-    public BipartiteMatchingRepair(Model model) {
+    public BipartiteMatchingRepair(Model model, int repairType) {
         this.model = model;
         this.m = model.nbDepots();
         this.n = model.nbTrips();
         this.cost = model.getCost();
+        this.repairType = repairType;
     }
 
     /**
-     * Self getSolution.
+     * Self repair, two variants.
      *
      * @param t
      * @return
      */
     private Repair repair(Tour t) {
-        int i = t.size() - 2;
-        Repair ra = new RepairImpl1a(t, cost[t.get(i)][t.get(0)] - cost[t.get(i)][t.get(i + 1)]);
-
-        int j = t.size() - 1;
-        Repair rb = new RepairImpl1b(t, cost[t.get(j)][t.get(1)] - cost[t.get(0)][t.get(1)]);
-        /*
-        System.out.println("------------- Type A ----------");
-        System.out.println(t + "\n\t" + ra);
-        System.out.println("------------- Type B ----------");
-        System.out.println(t + "\n\t" + rb);
-        if (ra.getValue() < 0) {
-            System.out.println(t + "\n\t" + ra);
-            System.out.println("\t\t\t cost[" + t.get(i) + "," + t.get(0) + "]=" + cost[t.get(i)][t.get(0)]);
-            System.out.println("\t\t\t cost[" + t.get(i) + "," + t.get(i + 1) + "]=" + cost[t.get(i)][t.get(i + 1)]);
-        }
-         */
-        /*
-        if (ra.getValue() < rb.getValue() || vehicleCount[t.get(j)] <= 0 ) {
-            vehicleCount[t.get(0)] --;
+        if (repairType == 1) {
+            int i = t.size() - 2;
+            Repair ra = new RepairImpl1a(t, cost[t.get(i)][t.get(0)] - cost[t.get(i)][t.get(i + 1)]);
             return ra;
-        } else {        
-            vehicleCount[t.get(j)] --;
+        } else {
+            int j = t.size() - 1;
+            Repair rb = new RepairImpl1b(t, cost[t.get(j)][t.get(1)] - cost[t.get(0)][t.get(1)]);
             return rb;
-        }*/
-        return ra;
+        }
     }
 
     /**
@@ -108,8 +92,6 @@ public class BipartiteMatchingRepair {
             }
         }
         //compatible tours repair
-        //vehicleCount[t1.first()] --;
-        //vehicleCount[t2.last()] --;
         return new RepairImpl2(t1, t2, pos1, pos2, min);
     }
 
@@ -118,11 +100,6 @@ public class BipartiteMatchingRepair {
      * @return
      */
     private Solution repair(Solution sol) {
-        /*
-        vehicleCount = new int[m];
-        for (int i = 0; i < m; i++) {
-            vehicleCount[i] = model.nbVehicles(i);
-        }*/
         List<Tour> tours = sol.getTours();
         List<Tour> badTours = tours.stream().filter(t -> t.isBad()).collect(Collectors.toList());
         Map<Tour, Tour> map = new HashMap<>();
@@ -162,7 +139,7 @@ public class BipartiteMatchingRepair {
                 = new KuhnMunkresMinimalWeightBipartitePerfectMatching(bip, part1, part2);
         MatchingAlgorithm.Matching match = alg.getMatching();
         int q = 0;
-        for (var obj : match.getEdges()) {
+        for (Object obj : match.getEdges()) {
             DefaultWeightedEdge e = (DefaultWeightedEdge) obj;
             //
             Tour t1 = bip.getEdgeSource(e);
@@ -201,28 +178,6 @@ public class BipartiteMatchingRepair {
             }
         }
         return bestSol;
-    }
-
-    private void differences() {
-        /*
-        int maxCount = -1;
-        for (int k = 0; k < nbSolutions; k++) {
-            int count = 0;
-            int s[][] = solutions.get(k);
-            for (int i = 0; i < n + m; i++) {
-                for (int j = 0; j < n + m; j++) {
-                    if (s[i][j] != bestSol[i][j]) {
-                        count++;
-                    }
-                }
-            }
-            System.out.println("\tcount=" + count);
-            if (count > maxCount) {
-                maxCount = count;
-            }
-        }
-        System.out.println("max differences " + maxCount);
-         */
     }
 
 }

@@ -11,8 +11,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.jgrapht.Graphs;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.DefaultWeightedEdge;
@@ -55,7 +53,7 @@ public abstract class Model {
             this.dataFile += ".inp";
         }
         if (!filename.contains("/")) {
-            this.dataFile = Main.PATH + this.dataFile;
+            this.dataFile = Config.getDataPath() + this.dataFile;
         }
             read(this.dataFile);
     }

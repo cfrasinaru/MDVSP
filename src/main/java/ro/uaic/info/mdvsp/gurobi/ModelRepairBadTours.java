@@ -26,8 +26,10 @@ public class ModelRepairBadTours extends Model {
         relax.solve();
 
         //repair
-        Solution repairedSol = new BipartiteMatchingRepair(relax).getSolution();
-        solutions.add(repairedSol);
+        Solution sol1 = new BipartiteMatchingRepair(relax, 1).getSolution();
+        Solution sol2 = new BipartiteMatchingRepair(relax, 2).getSolution();
+
+        solutions.add(sol1.totalCost() < sol2.totalCost() ? sol1 : sol2);
     }
 
 }

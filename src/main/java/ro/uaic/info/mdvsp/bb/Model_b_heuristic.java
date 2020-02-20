@@ -28,6 +28,7 @@ import gurobi.GRBVar;
 import gurobi.GRB.DoubleParam;
 import gurobi.GRB.IntParam;
 import gurobi.GRB.StringAttr;
+import ro.uaic.info.mdvsp.Config;
 import ro.uaic.info.mdvsp.Main;
 import ro.uaic.info.mdvsp.Model;
 import ro.uaic.info.mdvsp.Solution;
@@ -70,7 +71,7 @@ public class Model_b_heuristic extends Model {
         inst = Integer.parseInt(dataFile.substring(dataFile.length() - 5, dataFile.length() - 4));
         File file = new File(this.dataFile);
         String lp_fileName = "lp_" + name + ".lp";
-        File lp_file = new File("data/results/" + lp_fileName);
+        File lp_file = new File(Config.getDataPath() + "results/" + lp_fileName);
         BufferedReader reader = null;
         BufferedWriter writer = null;
         String text = null;
@@ -304,8 +305,8 @@ public class Model_b_heuristic extends Model {
         String nume = "";
         int stop = 1, i, j;
         double valoare = 0, current_optimum = 0.0, new_optimum = 0;
-        ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
-        HashMap<Arc, ArrayList<ArrayList<Integer>>> arc_list = new HashMap<Arc, ArrayList<ArrayList<Integer>>>();
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+        HashMap<Arc, ArrayList<ArrayList<Integer>>> arc_list = new HashMap<>();
 
         if (outputEnabled) {
             System.out.println("Bellman in");
@@ -1431,7 +1432,7 @@ public class Model_b_heuristic extends Model {
         }
         int h, k;
         ///////////
-        String lp_sol_fileName = "data/results/sol_" + name + ".txt";
+        String lp_sol_fileName = Config.getDataPath() + "results/sol_" + name + ".txt";
         String nume;
         File lp_sol_file = new File(lp_sol_fileName);
         BufferedWriter writer = null;
@@ -1561,7 +1562,7 @@ public class Model_b_heuristic extends Model {
             GRBVar branch_var;
             GRBModel root_model, current_model = new GRBModel(env), best_model = new GRBModel(env),
                     best_int_model = new GRBModel(env);
-            model = new GRBModel(env, "data/results/" + lpDataFile);
+            model = new GRBModel(env, Config.getDataPath() + "results/" + lpDataFile);
             model.set(IntParam.OutputFlag, 0);
             model.update();
             root_model = new GRBModel(model);
@@ -1739,7 +1740,7 @@ public class Model_b_heuristic extends Model {
             GRBVar branch_var;
             GRBModel root_model, current_model = new GRBModel(env), best_model = new GRBModel(env),
                     best_int_model = new GRBModel(env);
-            model = new GRBModel(env, "data/results/" + lpDataFile);
+            model = new GRBModel(env, Config.getDataPath() + "results/" + lpDataFile);
             model.set(IntParam.OutputFlag, 0);
             model.update();
             root_model = new GRBModel(model);
@@ -1899,7 +1900,8 @@ public class Model_b_heuristic extends Model {
         ArrayList<subPathVars>[] correctd_list;
         try {
             env = new GRBEnv();
-            model = new GRBModel(env, "data/results/" + lpDataFile);
+            env.set(IntParam.OutputFlag, 0);
+            model = new GRBModel(env, Config.getDataPath() + "results/" + lpDataFile);
             model.set(IntParam.OutputFlag, 0);
             model.update();
 
@@ -1930,6 +1932,10 @@ public class Model_b_heuristic extends Model {
             if (outputEnabled) {
                 System.out.println("MILP optimization time = " + (System.nanoTime() - start) * 1e-9);
             }
+            //-----------------------STOP
+            
+            
+            /*
             start = System.nanoTime();
             correctd_list = repairSubtours();
             //solutionToFile(dataFileInt1);
@@ -1942,6 +1948,8 @@ public class Model_b_heuristic extends Model {
                 System.out.println("Repairing time = " + (System.nanoTime() - start) * 1e-9);
             }
             verify();
+            */
+            
             //----------------
             extractSolution();
             //----------------
@@ -1978,7 +1986,7 @@ public class Model_b_heuristic extends Model {
         long start = System.nanoTime();
         // heuristic(args[0], Double.valueOf(args[1]), Integer.valueOf(args[2]));
         // simple_heuristic(args[0], Double.valueOf(args[1]), Integer.valueOf(args[2]));
-        new Model_b_heuristic(Main.PATH + "m4n500s0.inp").repairHeuristic1(10, 0.0, 20);
+        new Model_b_heuristic(Config.getDataPath() + "m4n500s0.inp").repairHeuristic1(10, 0.0, 20);
         System.out.println("Execution time1 = " + (System.nanoTime() - start) * 1e-9);
 
     }

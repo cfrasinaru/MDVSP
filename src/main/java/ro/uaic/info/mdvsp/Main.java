@@ -19,8 +19,6 @@ import ro.uaic.info.mdvsp.gurobi.*;
  */
 public class Main {
 
-    public static final String PATH = "../MDVSP-data/";
-
     private final Map<String, Integer> best = new HashMap<>();
 
     private PrintWriter solWriter;
@@ -58,14 +56,15 @@ public class Main {
         int k0 = Config.getInstanceMin();
         int k1 = Config.getInstanceMax();
         try {
-            solWriter = new PrintWriter(new FileWriter(PATH + "/solutions.txt", true));
-            resWriter = new PrintWriter(new FileWriter(PATH + "/results.txt", true));
+            String path = Config.getDataPath();
+            solWriter = new PrintWriter(new FileWriter(path + "/solutions.txt", true));
+            resWriter = new PrintWriter(new FileWriter(path + "/results.txt", true));
             resWriter.println("Instance \t Best known \t Our value \t Percent \t Running time \t Date");
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             return;
         }
-                
+
         for (int i = m0; i <= m1; i += 4) {
             for (int j = n0; j <= n1; j += 500) {
                 for (int k = k0; k <= k1; k++) {
@@ -76,9 +75,9 @@ public class Main {
 
         solWriter.println();
         solWriter.close();
-        
+
         resWriter.println();
-        resWriter.close();        
+        resWriter.close();
     }
 
     private void run(String name) {
@@ -87,10 +86,11 @@ public class Main {
             //Model pb = new Model3D(name);
             //Model pb = new ModelMinCostFlow(name);
             //Model pb = new ModelRelaxed(name);
-            //Model pb = new ModelRepairSimple(name);
+            Model pb = new ModelRepairSimple(name);
             //Model pb = new Model_b_heuristic(name);
-            
-            Model pb = getModel(name);
+            //Model pb = new ModelTest(name);
+
+            //Model pb = getModel(name);
             if (pb == null) {
                 return;
             }
@@ -99,32 +99,29 @@ public class Main {
             pb.setTimeLimit(Config.getTimeLimit());
 
             Solution sol = pb.solve();
-            if (sol != null) {
+            if (sol != null && false) {
                 sol.check();
             }
             writeSolution(pb);
             writeResult(pb);
-            
+
         } catch (InvalidSolutionException e) {
             System.err.println(">>>>>>>>>> Bad solution!\n" + e.getMessage());
-        }
-    }
-    
-    private Model getModel(String name) {
-        try {
-            switch(Config.getAlgorithm()) {
-                case "simple":
-                    return new ModelRepairSimple(name);
-                case "bad-tours":
-                    return new ModelRepairBadTours(name);
-                case "exact":
-                    return new Model3D(name);
-            }
-            throw new IllegalArgumentException("Invalid algorithm: " + name);
         } catch (IOException e) {
             System.err.println("No data file for: " + name + "\n" + e.getMessage());
-            return null;
         }
+    }
+
+    private Model getModel(String name) throws IOException {
+        switch (Config.getAlgorithm()) {
+            case "simple":
+                return new ModelRepairSimple(name);
+            case "bad-tours":
+                return new ModelRepairBadTours(name);
+            case "exact":
+                return new Model3D(name);
+        }
+        throw new IllegalArgumentException("Invalid algorithm: " + name);
     }
 
     private void writeSolution(Model pb) {
@@ -135,9 +132,12 @@ public class Main {
         solWriter.println(sol.totalCost());
         solWriter.println(SDF.format(new Date()));
         solWriter.println("----------");
-        solWriter.println(sol);
+        solWriter.println(sol.toursToString());
         solWriter.println();
         solWriter.flush();
+        
+        //System.out.println(sol.toursToString());
+        //System.out.println(sol.getBadTours().size());
     }
 
     private void writeResult(Model pb) {
@@ -151,7 +151,7 @@ public class Main {
                 pb.getName(), opt, val, pOpt, pb.getRunningTime(), SDF.format(new Date()), pb.getClass().getSimpleName());
         resWriter.println(str);
         resWriter.flush();
-        
+
         System.out.println(str);
     }
 
