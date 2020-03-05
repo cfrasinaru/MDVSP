@@ -71,7 +71,7 @@ public abstract class AbstractModel2D extends AbstractModel {
     }
     
     @Override
-    protected void extractSolution() {
+    protected Solution extractSolution() {
         try {
             Solution sol = new Solution(this);
             for (int i = 0; i < n + m; i++) {
@@ -84,8 +84,10 @@ public abstract class AbstractModel2D extends AbstractModel {
                 }
             }
             solutions.add(sol);
+            return sol;
         } catch (GRBException e) {
             System.err.println(e);
+            return null;
         }
     }
     

@@ -1,0 +1,868 @@
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	       1054 	 12.02.2020 19:04 
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	        843 	 12.02.2020 19:04 
+m4n500s2 	 1,283,811 	 1,292,854 	 0.00704 	        723 	 12.02.2020 19:04 
+m4n500s3 	 1,258,634 	 1,264,483 	 0.00465 	        680 	 12.02.2020 19:04 
+m4n500s4 	 1,317,077 	 1,323,454 	 0.00484 	        839 	 12.02.2020 19:04 
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	       1025 	 12.02.2020 19:05
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	        825 	 12.02.2020 19:05
+m4n500s2 	 1,283,811 	 1,292,854 	 0.00704 	        716 	 12.02.2020 19:05
+m4n500s3 	 1,258,634 	 1,264,483 	 0.00465 	        651 	 12.02.2020 19:05
+m4n500s4 	 1,317,077 	 1,323,454 	 0.00484 	        803 	 12.02.2020 19:05
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	       1013 	 12.02.2020 19:07
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	        827 	 12.02.2020 19:07
+m4n500s2 	 1,283,811 	 1,292,854 	 0.00704 	        719 	 12.02.2020 19:07
+m4n500s3 	 1,258,634 	 1,264,483 	 0.00465 	        662 	 12.02.2020 19:07
+m4n500s4 	 1,317,077 	 1,323,454 	 0.00484 	        795 	 12.02.2020 19:07
+m4n1000s0 	 2,516,247 	 2,528,788 	 0.00498 	       3956 	 12.02.2020 19:07
+m4n1000s1 	 2,413,393 	 2,423,209 	 0.00407 	       3639 	 12.02.2020 19:07
+m4n1000s2 	 2,452,905 	 2,462,618 	 0.00396 	       3617 	 12.02.2020 19:07
+m4n1000s3 	 2,490,812 	 2,498,496 	 0.00308 	       3902 	 12.02.2020 19:07
+m4n1000s4 	 2,519,191 	 2,527,925 	 0.00347 	       3875 	 12.02.2020 19:07
+m4n1500s0 	 3,830,912 	 3,846,920 	 0.00418 	       9356 	 12.02.2020 19:07
+m4n1500s1 	 3,559,176 	 3,566,398 	 0.00203 	       8695 	 12.02.2020 19:07
+m4n1500s2 	 3,649,757 	 3,663,088 	 0.00365 	       8969 	 12.02.2020 19:07
+m4n1500s3 	 3,406,815 	 3,421,722 	 0.00438 	       9116 	 12.02.2020 19:08
+m4n1500s4 	 3,567,122 	 3,582,975 	 0.00444 	       8556 	 12.02.2020 19:08
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	       1057 	 12.02.2020 19:30 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	        828 	 12.02.2020 19:30 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,854 	 0.00704 	        728 	 12.02.2020 19:30 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,483 	 0.00465 	        692 	 12.02.2020 19:30 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,323,454 	 0.00484 	        801 	 12.02.2020 19:30 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,055 	 0.00461 	      16261 	 12.02.2020 19:30 	 ModelRepairBadTours
+m4n500s1 	 1,241,618 	 1,247,989 	 0.00513 	      12291 	 12.02.2020 19:31 	 ModelRepairBadTours
+m4n500s2 	 1,283,811 	 1,291,930 	 0.00632 	      12458 	 12.02.2020 19:31 	 ModelRepairBadTours
+m4n500s3 	 1,258,634 	 1,264,555 	 0.00470 	      11501 	 12.02.2020 19:31 	 ModelRepairBadTours
+m4n500s4 	 1,317,077 	 1,321,859 	 0.00363 	      11435 	 12.02.2020 19:31 	 ModelRepairBadTours
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,289,114 	 0.00000 	      52059 	 12.02.2020 19:35 	 Model3D
+m4n500s1 	 1,241,618 	 1,241,618 	 0.00000 	      50329 	 12.02.2020 19:36 	 Model3D
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	       1033 	 12.02.2020 20:10 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	        819 	 12.02.2020 20:10 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	       1006 	 12.02.2020 21:58 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	        831 	 12.02.2020 21:58 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	       1007 	 12.02.2020 22:19 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	        774 	 12.02.2020 22:19 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n2000s0 	 4,916,810 	 4,975,500 	 0.01194 	      14297 	 13.02.2020 06:59 	 ModelRepairSimple
+m8n2000s1 	 4,769,442 	 4,821,170 	 0.01085 	      14192 	 13.02.2020 06:59 	 ModelRepairSimple
+m8n2000s2 	 4,897,886 	 4,948,680 	 0.01037 	      13210 	 13.02.2020 06:59 	 ModelRepairSimple
+m8n2000s3 	 5,171,924 	 5,231,018 	 0.01143 	      13763 	 13.02.2020 06:59 	 ModelRepairSimple
+m8n2000s4 	 4,761,862 	 4,810,342 	 0.01018 	      12801 	 13.02.2020 07:00 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n2500s0 	 5,911,824 	 5,981,194 	 0.01173 	      21901 	 13.02.2020 07:02 	 ModelRepairSimple
+m8n2500s1 	 6,296,870 	 6,362,782 	 0.01047 	      21541 	 13.02.2020 07:02 	 ModelRepairSimple
+m8n2500s2 	 5,835,360 	 5,902,514 	 0.01151 	      21156 	 13.02.2020 07:03 	 ModelRepairSimple
+m8n2500s3 	 6,046,374 	 6,113,906 	 0.01117 	      22145 	 13.02.2020 07:03 	 ModelRepairSimple
+m8n2500s4 	 6,021,410 	 6,084,868 	 0.01054 	      21479 	 13.02.2020 07:04 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m16n2500s0 	 5,960,298 	 6,043,276 	 0.01392 	      21842 	 13.02.2020 09:01 	 ModelRepairSimple
+m16n2500s1 	 6,055,252 	 6,148,280 	 0.01536 	      21950 	 13.02.2020 09:02 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m16n3000s0 	 7,473,148 	 7,578,216 	 0.01406 	      31935 	 13.02.2020 09:04 	 ModelRepairSimple
+m16n3000s1 	 7,021,238 	 7,119,266 	 0.01396 	      32221 	 13.02.2020 09:04 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m16n3000s0 	 7,473,148 	 7,578,216 	 0.01406 	      31585 	 13.02.2020 09:58 	 ModelRepairSimple
+m16n3000s1 	 7,021,238 	 7,119,266 	 0.01396 	      31483 	 13.02.2020 09:59 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	        991 	 13.02.2020 12:27 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	        801 	 13.02.2020 12:27 	 ModelRepairSimple
+m4n1000s0 	 2,516,247 	 2,528,788 	 0.00498 	       3890 	 13.02.2020 12:28 	 ModelRepairSimple
+m4n1000s1 	 2,413,393 	 2,423,209 	 0.00407 	       3515 	 13.02.2020 12:28 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	       1015 	 13.02.2020 12:48 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	        843 	 13.02.2020 12:48 	 ModelRepairSimple
+m4n1000s0 	 2,516,247 	 2,528,788 	 0.00498 	       4039 	 13.02.2020 12:48 	 ModelRepairSimple
+m4n1000s1 	 2,413,393 	 2,423,209 	 0.00407 	       3549 	 13.02.2020 12:48 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	       1087 	 13.02.2020 13:41 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	        949 	 13.02.2020 13:41 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,582 	 0.00579 	       1083 	 13.02.2020 13:48 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,247,877 	 0.00504 	       1201 	 13.02.2020 13:48 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,854 	 0.00704 	        816 	 13.02.2020 13:48 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,483 	 0.00465 	        711 	 13.02.2020 13:48 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,323,454 	 0.00484 	        923 	 13.02.2020 13:48 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,055 	 0.00461 	      16920 	 13.02.2020 13:54 	 ModelRepairBadTours
+m4n500s1 	 1,241,618 	 1,247,989 	 0.00513 	      12474 	 13.02.2020 13:54 	 ModelRepairBadTours
+m4n500s2 	 1,283,811 	 1,291,930 	 0.00632 	      13630 	 13.02.2020 13:55 	 ModelRepairBadTours
+m4n500s3 	 1,258,634 	 1,264,555 	 0.00470 	      12108 	 13.02.2020 13:55 	 ModelRepairBadTours
+m4n500s4 	 1,317,077 	 1,321,859 	 0.00363 	      11266 	 13.02.2020 13:55 	 ModelRepairBadTours
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,055 	 0.00461 	      18288 	 13.02.2020 13:56 	 ModelRepairBadTours
+m4n500s1 	 1,241,618 	 1,247,989 	 0.00513 	      13015 	 13.02.2020 13:56 	 ModelRepairBadTours
+m4n500s2 	 1,283,811 	 1,291,930 	 0.00632 	      14000 	 13.02.2020 13:56 	 ModelRepairBadTours
+m4n500s3 	 1,258,634 	 1,264,555 	 0.00470 	      12300 	 13.02.2020 13:57 	 ModelRepairBadTours
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,055 	 0.00461 	      17306 	 13.02.2020 13:57 	 ModelRepairBadTours
+m4n500s1 	 1,241,618 	 1,247,989 	 0.00513 	      13331 	 13.02.2020 13:57 	 ModelRepairBadTours
+m4n500s2 	 1,283,811 	 1,291,930 	 0.00632 	      13719 	 13.02.2020 13:58 	 ModelRepairBadTours
+m4n500s3 	 1,258,634 	 1,264,555 	 0.00470 	      11687 	 13.02.2020 13:58 	 ModelRepairBadTours
+m4n500s4 	 1,317,077 	 1,321,859 	 0.00363 	      11750 	 13.02.2020 13:58 	 ModelRepairBadTours
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n1500s0 	 3,830,912 	 3,847,046 	 0.00421 	       9937 	 13.02.2020 14:13 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n1500s0 	 3,830,912 	 3,847,046 	 0.00421 	       9921 	 13.02.2020 14:13 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n1500s0 	 3,830,912 	 3,848,743 	 0.00465 	     360314 	 13.02.2020 14:20 	 ModelRepairBadTours
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m16n3000s0 	 7,473,148 	 7,573,318 	 0.01340 	      34923 	 13.02.2020 14:25 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,870 	 0.00602 	       1104 	 14.02.2020 06:56 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,475 	 -0.00127 	        957 	 14.02.2020 06:57 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,289,114 	 0.00000 	      72353 	 14.02.2020 07:00 	 Model3D
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,475 	 -0.00127 	       1074 	 15.02.2020 13:38 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,475 	 -0.00127 	       1159 	 15.02.2020 14:23 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,475 	 -0.00127 	        989 	 15.02.2020 14:23 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,475 	 -0.00127 	       1095 	 15.02.2020 14:25 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,475 	 -0.00127 	       1206 	 17.02.2020 21:23 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,549 	 -0.00121 	        976 	 17.02.2020 21:38 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,475 	 -0.00127 	        985 	 17.02.2020 21:39 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,549 	 -0.00121 	        975 	 17.02.2020 21:39 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,549 	 -0.00121 	        999 	 17.02.2020 21:39 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,549 	 -0.00121 	       1011 	 17.02.2020 21:40 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,493 	 -0.00126 	        956 	 17.02.2020 21:40 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,587 	 -0.00118 	        947 	 17.02.2020 21:40 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,587 	 -0.00118 	        932 	 17.02.2020 21:40 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,587 	 -0.00118 	       1020 	 17.02.2020 21:40 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,587 	 -0.00118 	        981 	 17.02.2020 21:40 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,587 	 -0.00118 	        946 	 17.02.2020 21:41 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,587 	 -0.00118 	        964 	 17.02.2020 21:41 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,587 	 -0.00118 	        941 	 17.02.2020 21:41 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,587 	 -0.00118 	        945 	 17.02.2020 21:41 	 ModelTest
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,870 	 0.00602 	       1152 	 17.02.2020 21:41 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,870 	 0.00602 	       1081 	 17.02.2020 21:42 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,436 	 0.00568 	       1071 	 17.02.2020 21:45 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,870 	 0.00602 	       1094 	 17.02.2020 21:45 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,870 	 0.00602 	       1062 	 17.02.2020 21:47 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,382 	 0.00564 	       1074 	 17.02.2020 21:48 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,870 	 0.00602 	       1081 	 17.02.2020 21:48 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,870 	 0.00602 	       1144 	 17.02.2020 21:49 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,184 	 0.00609 	        899 	 17.02.2020 21:49 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,079 	 0.00644 	        830 	 17.02.2020 21:49 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,274 	 0.00448 	        762 	 17.02.2020 21:49 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,322,535 	 0.00414 	        876 	 17.02.2020 21:49 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,382 	 0.00564 	       1066 	 17.02.2020 21:50 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,049 	 0.00598 	        890 	 17.02.2020 21:50 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,294,606 	 0.00841 	        788 	 17.02.2020 21:50 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,265,007 	 0.00506 	        792 	 17.02.2020 21:50 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,323,043 	 0.00453 	        893 	 17.02.2020 21:50 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,818 	 0.00598 	       1042 	 17.02.2020 21:50 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,932 	 0.00670 	        913 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,293,004 	 0.00716 	        819 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,257 	 0.00447 	        788 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,323,275 	 0.00471 	        861 	 17.02.2020 21:51 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,480 	 0.00494 	       1032 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,755 	 0.00655 	        876 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,293,537 	 0.00758 	        799 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,977 	 0.00504 	        795 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,323,117 	 0.00459 	        860 	 17.02.2020 21:51 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,088 	 0.00541 	       1043 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,396 	 0.00626 	        874 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,293,908 	 0.00786 	        786 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,425 	 0.00460 	        833 	 17.02.2020 21:51 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,323,015 	 0.00451 	        839 	 17.02.2020 21:51 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,616 	 0.00504 	       1105 	 17.02.2020 21:54 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,816 	 0.00660 	        893 	 17.02.2020 21:54 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,199 	 0.00653 	        838 	 17.02.2020 21:54 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,266,282 	 0.00608 	        794 	 17.02.2020 21:54 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,322,334 	 0.00399 	        918 	 17.02.2020 21:54 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,305,716 	 0.01029 	       1132 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,679 	 0.00999 	       1023 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,729 	 0.00957 	        945 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	        857 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,887 	 0.01088 	        913 	 17.02.2020 21:55 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,302,790 	 0.00803 	       1077 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,291,907 	 0.01174 	        990 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,989 	 0.00977 	        880 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,291,876 	 0.01099 	        878 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,292,420 	 0.01286 	        900 	 17.02.2020 21:55 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,303,240 	 0.00838 	       1039 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,475 	 0.00905 	        933 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,437 	 0.00934 	        857 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,024 	 0.01110 	        913 	 17.02.2020 21:55 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,292,757 	 0.01312 	        883 	 17.02.2020 21:55 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 2,454,223 	 0.89895 	       1123 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 2,307,987 	 0.80747 	        892 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 2,357,368 	 0.80745 	        853 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 2,484,373 	 0.94420 	        887 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 2,362,347 	 0.85135 	        906 	 17.02.2020 21:56 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,303,240 	 0.00838 	       1057 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,475 	 0.00905 	        945 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,437 	 0.00934 	        872 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,024 	 0.01110 	       1235 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,292,757 	 0.01312 	        873 	 17.02.2020 21:56 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,303,240 	 0.00838 	       1060 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,475 	 0.00905 	        953 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,317,338 	 0.01003 	        905 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,024 	 0.01110 	        871 	 17.02.2020 21:56 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,292,757 	 0.01312 	        888 	 17.02.2020 21:56 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n1500s0 	 3,500,160 	 3,531,710 	 0.00901 	      11705 	 17.02.2020 21:57 	 ModelRepairSimple
+m8n1500s1 	 3,802,650 	 3,823,852 	 0.00558 	      15797 	 17.02.2020 21:58 	 ModelRepairSimple
+m8n1500s2 	 3,605,094 	 3,636,708 	 0.00877 	      11142 	 17.02.2020 21:58 	 ModelRepairSimple
+m8n1500s3 	 3,515,802 	 3,543,847 	 0.00798 	      14365 	 17.02.2020 21:58 	 ModelRepairSimple
+m8n1500s4 	 3,704,953 	 3,732,074 	 0.00732 	       9415 	 17.02.2020 21:58 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m16n1500s0 	 3,568,522 	 3,617,264 	 0.01366 	      11240 	 17.02.2020 22:19 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m16n1500s0 	 3,568,522 	 3,619,050 	 0.01416 	      10056 	 17.02.2020 22:19 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m16n1500s0 	 3,568,522 	 3,618,042 	 0.01388 	       9573 	 17.02.2020 22:19 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m16n1500s0 	 3,568,522 	 3,619,772 	 0.01436 	       8421 	 17.02.2020 22:19 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m16n1500s0 	 3,568,522 	 3,619,050 	 0.01416 	      10489 	 17.02.2020 22:31 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m16n1500s0 	 3,568,522 	 3,619,470 	 0.01428 	      10580 	 17.02.2020 22:31 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,088 	 0.00541 	       1047 	 17.02.2020 22:32 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,396 	 0.00626 	        890 	 17.02.2020 22:32 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,293,908 	 0.00786 	        797 	 17.02.2020 22:32 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,425 	 0.00460 	        793 	 17.02.2020 22:32 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,323,015 	 0.00451 	        852 	 17.02.2020 22:32 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,480 	 0.00494 	       1036 	 17.02.2020 22:32 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,755 	 0.00655 	        875 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,293,537 	 0.00758 	        847 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,977 	 0.00504 	        798 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,323,117 	 0.00459 	        869 	 17.02.2020 22:33 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,164 	 0.00547 	       1039 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,248,911 	 0.00587 	        935 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,293,521 	 0.00756 	        788 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,265,045 	 0.00509 	        814 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,322,491 	 0.00411 	        852 	 17.02.2020 22:33 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,480 	 0.00494 	       1037 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,755 	 0.00655 	        894 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,293,537 	 0.00758 	        829 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,977 	 0.00504 	        796 	 17.02.2020 22:33 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,323,117 	 0.00459 	        874 	 17.02.2020 22:33 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,616 	 0.00504 	       1062 	 17.02.2020 22:36 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,816 	 0.00660 	        915 	 17.02.2020 22:36 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,199 	 0.00653 	        860 	 17.02.2020 22:36 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,266,282 	 0.00608 	        849 	 17.02.2020 22:36 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,322,334 	 0.00399 	        895 	 17.02.2020 22:36 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,480 	 0.00494 	       1076 	 17.02.2020 22:36 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,248,981 	 0.00593 	        970 	 17.02.2020 22:36 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,294,219 	 0.00811 	        894 	 17.02.2020 22:36 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,977 	 0.00504 	        796 	 17.02.2020 22:36 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,322,644 	 0.00423 	        852 	 17.02.2020 22:36 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,287,587 	 -0.00118 	        956 	 17.02.2020 22:37 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,240,217 	 -0.00113 	        891 	 17.02.2020 22:37 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,282,979 	 -0.00065 	        769 	 17.02.2020 22:37 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,257,780 	 -0.00068 	        786 	 17.02.2020 22:37 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,316,709 	 -0.00028 	        840 	 17.02.2020 22:37 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,480 	 0.00494 	       1021 	 17.02.2020 22:37 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,248,981 	 0.00593 	        878 	 17.02.2020 22:38 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,294,219 	 0.00811 	        800 	 17.02.2020 22:38 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,977 	 0.00504 	        801 	 17.02.2020 22:38 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,322,644 	 0.00423 	        888 	 17.02.2020 22:38 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,870 	 0.00602 	       1341 	 19.02.2020 21:15 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,184 	 0.00609 	       1033 	 19.02.2020 21:15 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,079 	 0.00644 	        798 	 19.02.2020 21:15 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,274 	 0.00448 	        779 	 19.02.2020 21:15 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,322,535 	 0.00414 	        885 	 19.02.2020 21:15 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,870 	 0.00602 	       1092 	 19.02.2020 21:16 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,249,184 	 0.00609 	        884 	 19.02.2020 21:16 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,079 	 0.00644 	        793 	 19.02.2020 21:16 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,264,274 	 0.00448 	        747 	 19.02.2020 21:16 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,322,535 	 0.00414 	        868 	 19.02.2020 21:16 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,616 	 0.00504 	       1087 	 19.02.2020 21:17 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,250,037 	 0.00678 	        968 	 19.02.2020 21:17 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,199 	 0.00653 	        885 	 19.02.2020 21:17 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,266,282 	 0.00608 	        802 	 19.02.2020 21:17 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,322,334 	 0.00399 	        924 	 19.02.2020 21:17 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,810 	 0.00519 	       1199 	 19.02.2020 21:21 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,248,172 	 0.00528 	        954 	 19.02.2020 21:21 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,293,461 	 0.00752 	        846 	 19.02.2020 21:21 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,265,166 	 0.00519 	        811 	 19.02.2020 21:21 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,321,886 	 0.00365 	        867 	 19.02.2020 21:21 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,616 	 0.00504 	       1078 	 19.02.2020 21:26 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,248,172 	 0.00528 	        918 	 19.02.2020 21:26 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,199 	 0.00653 	        843 	 19.02.2020 21:26 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,265,166 	 0.00519 	        809 	 19.02.2020 21:27 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,321,886 	 0.00365 	        855 	 19.02.2020 21:27 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,011 	 0.00535 	       1076 	 19.02.2020 21:28 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,247,438 	 0.00469 	        935 	 19.02.2020 21:28 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,293,908 	 0.00786 	        848 	 19.02.2020 21:28 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,263,817 	 0.00412 	        860 	 19.02.2020 21:28 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,323,015 	 0.00451 	        854 	 19.02.2020 21:28 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,153 	 0.00909 	       1164 	 19.02.2020 21:28 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,498 	 0.00907 	       1111 	 19.02.2020 21:28 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,302 	 0.00924 	       1012 	 19.02.2020 21:28 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	        913 	 19.02.2020 21:28 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,288,458 	 0.00976 	        944 	 19.02.2020 21:28 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,302,790 	 0.00803 	       1076 	 19.02.2020 21:28 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,291,388 	 0.01133 	       1011 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,315,814 	 0.00887 	        891 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,291,876 	 0.01099 	        911 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,291,166 	 0.01188 	        909 	 19.02.2020 21:29 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,302,553 	 0.00785 	       1081 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,355 	 0.00896 	       1015 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,315,028 	 0.00826 	        870 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,024 	 0.01110 	        931 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,291,424 	 0.01208 	        904 	 19.02.2020 21:29 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,301,864 	 0.00731 	       1180 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,290,233 	 0.01043 	       1023 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,315,771 	 0.00883 	        960 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,051 	 0.01112 	       1005 	 19.02.2020 21:29 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,292,276 	 0.01275 	        942 	 19.02.2020 21:29 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1151 	 19.02.2020 21:30 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,875 	 0.01015 	       1080 	 19.02.2020 21:30 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	        922 	 19.02.2020 21:30 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	        954 	 19.02.2020 21:30 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,435 	 0.01052 	        910 	 19.02.2020 21:30 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n1000s0 	 2,422,112 	 2,440,669 	 0.00766 	       4904 	 19.02.2020 21:30 	 ModelRepairSimple
+m8n1000s1 	 2,524,293 	 2,546,000 	 0.00860 	       5321 	 19.02.2020 21:31 	 ModelRepairSimple
+m8n1000s2 	 2,556,313 	 2,581,261 	 0.00976 	       4142 	 19.02.2020 21:31 	 ModelRepairSimple
+m8n1000s3 	 2,478,393 	 2,496,560 	 0.00733 	       3951 	 19.02.2020 21:31 	 ModelRepairSimple
+m8n1000s4 	 2,498,388 	 2,518,920 	 0.00822 	       4935 	 19.02.2020 21:31 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n1500s0 	 3,500,160 	 3,528,109 	 0.00799 	       9676 	 19.02.2020 21:31 	 ModelRepairSimple
+m8n1500s1 	 3,802,650 	 3,822,294 	 0.00517 	      10677 	 19.02.2020 21:31 	 ModelRepairSimple
+m8n1500s2 	 3,605,094 	 3,638,775 	 0.00934 	       9443 	 19.02.2020 21:32 	 ModelRepairSimple
+m8n1500s3 	 3,515,802 	 3,539,221 	 0.00666 	      10384 	 19.02.2020 21:32 	 ModelRepairSimple
+m8n1500s4 	 3,704,953 	 3,736,136 	 0.00842 	       9372 	 19.02.2020 21:32 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,153 	 0.00909 	       1297 	 19.02.2020 21:33 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,498 	 0.00907 	       1131 	 19.02.2020 21:33 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,302 	 0.00924 	       1075 	 19.02.2020 21:33 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	        921 	 19.02.2020 21:33 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,288,458 	 0.00976 	        890 	 19.02.2020 21:33 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,302,553 	 0.00785 	       1124 	 19.02.2020 21:49 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,355 	 0.00896 	       1009 	 19.02.2020 21:49 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,708 	 0.00955 	        863 	 19.02.2020 21:49 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,024 	 0.01110 	        907 	 19.02.2020 21:49 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,291,424 	 0.01208 	        884 	 19.02.2020 21:49 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,302,553 	 0.00785 	       1152 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,355 	 0.00896 	       1061 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,315,028 	 0.00826 	        917 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,024 	 0.01110 	        968 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,291,424 	 0.01208 	        921 	 19.02.2020 21:50 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,302,790 	 0.00803 	       1114 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,291,388 	 0.01133 	        984 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,315,814 	 0.00887 	        863 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,291,876 	 0.01099 	        966 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,291,166 	 0.01188 	        905 	 19.02.2020 21:50 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,303,468 	 0.00856 	       1132 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,290,854 	 0.01091 	        955 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,314,506 	 0.00786 	        991 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,291,099 	 0.01038 	        889 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,291,579 	 0.01220 	        899 	 19.02.2020 21:50 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,153 	 0.00909 	       1153 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,498 	 0.00907 	       1006 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,302 	 0.00924 	        981 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	        867 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,288,458 	 0.00976 	        888 	 19.02.2020 21:50 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1149 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,875 	 0.01015 	       1019 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	        915 	 19.02.2020 21:50 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	        935 	 19.02.2020 21:51 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,435 	 0.01052 	        902 	 19.02.2020 21:51 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,084 	 0.00903 	       1143 	 19.02.2020 21:51 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,290,071 	 0.01030 	        979 	 19.02.2020 21:51 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,317,229 	 0.00995 	        995 	 19.02.2020 21:51 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,451 	 0.00987 	        903 	 19.02.2020 21:51 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,863 	 0.01086 	        899 	 19.02.2020 21:51 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,303,387 	 0.00849 	      12886 	 20.02.2020 06:57 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,286,871 	 0.00779 	      27517 	 20.02.2020 06:58 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,315,886 	 0.00892 	      21809 	 20.02.2020 06:58 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,291,108 	 0.01038 	      10061 	 20.02.2020 06:58 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,288,458 	 0.00976 	      17374 	 20.02.2020 06:59 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,616 	 0.00504 	       1101 	 20.02.2020 08:43 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,248,172 	 0.00528 	        948 	 20.02.2020 08:43 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,199 	 0.00653 	        835 	 20.02.2020 08:43 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,265,166 	 0.00519 	        795 	 20.02.2020 08:43 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,321,886 	 0.00365 	        852 	 20.02.2020 08:43 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,616 	 0.00504 	       1491 	 20.02.2020 22:16 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,248,172 	 0.00528 	       1108 	 20.02.2020 22:16 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,199 	 0.00653 	       1080 	 20.02.2020 22:16 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,265,166 	 0.00519 	       1022 	 20.02.2020 22:17 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,321,886 	 0.00365 	       1070 	 20.02.2020 22:17 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,616 	 0.00504 	       1342 	 20.02.2020 22:17 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,248,172 	 0.00528 	       1135 	 20.02.2020 22:17 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,292,199 	 0.00653 	       1004 	 20.02.2020 22:17 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,265,166 	 0.00519 	        944 	 20.02.2020 22:17 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,321,886 	 0.00365 	       1116 	 20.02.2020 22:17 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,153 	 0.00909 	       1360 	 20.02.2020 22:17 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,498 	 0.00907 	       1197 	 20.02.2020 22:17 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,302 	 0.00924 	       1212 	 20.02.2020 22:17 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	       1118 	 20.02.2020 22:18 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,288,458 	 0.00976 	       1139 	 20.02.2020 22:18 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	       1320 	 20.02.2020 22:18 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,291,108 	 0.01038 	      12106 	 20.02.2020 22:20 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,291,443 	 0.01065 	      62801 	 20.02.2020 22:21 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,291,443 	 0.01065 	      63520 	 20.02.2020 22:24 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	       1360 	 21.02.2020 08:50 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	       1189 	 21.02.2020 08:56 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	       1184 	 21.02.2020 13:48 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,290,237 	 0.00970 	     167679 	 21.02.2020 20:50 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,291,108 	 0.01038 	      11241 	 21.02.2020 20:52 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,291,443 	 0.01065 	      58137 	 21.02.2020 20:54 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	       1147 	 21.02.2020 21:02 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,292,016 	 0.01110 	       1142 	 21.02.2020 21:03 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,275,755 	 -0.00163 	       1009 	 21.02.2020 21:03 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,275,755 	 -0.00163 	       1026 	 21.02.2020 21:04 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,275,991 	 -0.00145 	       1010 	 21.02.2020 21:05 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,275,991 	 -0.00145 	       1065 	 21.02.2020 21:07 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,275,991 	 -0.00145 	       1047 	 21.02.2020 21:07 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,275,991 	 -0.00145 	       1025 	 21.02.2020 21:08 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,275,991 	 -0.00145 	       1039 	 21.02.2020 21:08 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,275,991 	 -0.00145 	       1090 	 21.02.2020 21:09 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1111 	 21.02.2020 21:14 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,276,531 	 -0.00102 	       1016 	 21.02.2020 21:14 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1029 	 21.02.2020 21:15 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1015 	 21.02.2020 21:17 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1080 	 21.02.2020 21:17 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1039 	 21.02.2020 21:18 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,211 	 -0.00049 	       1025 	 21.02.2020 21:18 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,211 	 -0.00049 	       1672 	 21.02.2020 21:20 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1593 	 21.02.2020 21:21 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1020 	 21.02.2020 21:21 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1033 	 21.02.2020 21:30 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1004 	 21.02.2020 21:31 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1521 	 21.02.2020 21:33 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,277,235 	 -0.00047 	       1017 	 21.02.2020 21:46 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,275,991 	 -0.00145 	       1293 	 22.02.2020 12:08 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,275,725 	 -0.00165 	       1180 	 22.02.2020 12:08 	 ModelRelaxed
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	       1283 	 22.02.2020 12:09 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	       1279 	 22.02.2020 12:11 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1215 	 22.02.2020 12:12 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,875 	 0.01015 	       1086 	 22.02.2020 12:12 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	        952 	 22.02.2020 12:12 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	        979 	 22.02.2020 12:12 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,435 	 0.01052 	       1001 	 22.02.2020 12:12 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1307 	 22.02.2020 12:13 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,875 	 0.01015 	       1114 	 22.02.2020 12:13 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	        945 	 22.02.2020 12:13 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	        944 	 22.02.2020 12:13 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,435 	 0.01052 	        920 	 22.02.2020 12:13 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1201 	 22.02.2020 12:53 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,875 	 0.01015 	       1017 	 22.02.2020 12:53 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	        931 	 22.02.2020 12:53 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	        901 	 22.02.2020 12:53 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,435 	 0.01052 	        914 	 22.02.2020 12:53 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1148 	 22.02.2020 12:53 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,875 	 0.01015 	       1016 	 22.02.2020 12:53 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	        932 	 22.02.2020 12:53 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	        924 	 22.02.2020 12:53 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,435 	 0.01052 	        922 	 22.02.2020 12:53 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1238 	 22.02.2020 12:54 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,875 	 0.01015 	       1107 	 22.02.2020 12:54 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	        937 	 22.02.2020 12:54 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	        912 	 22.02.2020 12:54 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,435 	 0.01052 	        909 	 22.02.2020 12:54 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1113 	 22.02.2020 12:54 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,875 	 0.01015 	       1000 	 22.02.2020 12:54 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	        934 	 22.02.2020 12:54 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	        910 	 22.02.2020 12:54 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,435 	 0.01052 	        897 	 22.02.2020 12:54 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1144 	 22.02.2020 12:55 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,875 	 0.01015 	       1032 	 22.02.2020 12:55 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	        917 	 22.02.2020 12:55 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	        921 	 22.02.2020 12:55 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,435 	 0.01052 	        911 	 22.02.2020 12:55 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1229 	 22.02.2020 12:58 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,289,875 	 0.01015 	        999 	 22.02.2020 12:58 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	        934 	 22.02.2020 12:58 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	        923 	 22.02.2020 12:58 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,289,435 	 0.01052 	        942 	 22.02.2020 12:58 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1224 	 22.02.2020 13:00 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,304,837 	 0.00961 	       1183 	 22.02.2020 13:01 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,302,712 	 0.00797 	      10386 	 22.02.2020 13:01 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n500s0 	 1,292,411 	 1,302,517 	 0.00782 	       9984 	 22.02.2020 13:02 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,006 	 0.00868 	      53190 	 22.02.2020 13:03 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	      24290 	 22.02.2020 13:03 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	      12608 	 22.02.2020 13:03 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,287,919 	 0.00933 	      17472 	 22.02.2020 13:04 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,295,671 	 0.00509 	      10709 	 22.02.2020 13:13 	 ModelRepairSimple
+m4n500s1 	 1,241,618 	 1,246,655 	 0.00406 	      16051 	 22.02.2020 13:13 	 ModelRepairSimple
+m4n500s2 	 1,283,811 	 1,291,745 	 0.00618 	      24056 	 22.02.2020 13:14 	 ModelRepairSimple
+m4n500s3 	 1,258,634 	 1,263,045 	 0.00350 	      13614 	 22.02.2020 13:14 	 ModelRepairSimple
+m4n500s4 	 1,317,077 	 1,322,306 	 0.00397 	      14271 	 22.02.2020 13:14 	 ModelRepairSimple
+m4n1000s0 	 2,516,247 	 2,527,966 	 0.00466 	      52887 	 22.02.2020 13:15 	 ModelRepairSimple
+m4n1000s1 	 2,413,393 	 2,421,735 	 0.00346 	      46393 	 22.02.2020 13:16 	 ModelRepairSimple
+m4n1000s2 	 2,452,905 	 2,461,787 	 0.00362 	      49945 	 22.02.2020 13:17 	 ModelRepairSimple
+m4n1000s3 	 2,490,812 	 2,498,046 	 0.00290 	      93768 	 22.02.2020 13:18 	 ModelRepairSimple
+m4n1000s4 	 2,519,191 	 2,524,902 	 0.00227 	      58985 	 22.02.2020 13:19 	 ModelRepairSimple
+m4n1500s0 	 3,830,912 	 3,846,785 	 0.00414 	     111246 	 22.02.2020 13:21 	 ModelRepairSimple
+m4n1500s1 	 3,559,176 	 3,565,962 	 0.00191 	     171006 	 22.02.2020 13:24 	 ModelRepairSimple
+m4n1500s2 	 3,649,757 	 3,661,356 	 0.00318 	     187488 	 22.02.2020 13:27 	 ModelRepairSimple
+m4n1500s3 	 3,406,815 	 3,419,905 	 0.00384 	     374042 	 22.02.2020 13:33 	 ModelRepairSimple
+m4n1500s4 	 3,567,122 	 3,582,852 	 0.00441 	     112639 	 22.02.2020 13:35 	 ModelRepairSimple
+m8n500s0 	 1,292,411 	 1,302,712 	 0.00797 	      10804 	 22.02.2020 13:35 	 ModelRepairSimple
+m8n500s1 	 1,276,919 	 1,288,006 	 0.00868 	      53664 	 22.02.2020 13:36 	 ModelRepairSimple
+m8n500s2 	 1,304,251 	 1,316,965 	 0.00975 	      24245 	 22.02.2020 13:37 	 ModelRepairSimple
+m8n500s3 	 1,277,838 	 1,290,397 	 0.00983 	      12701 	 22.02.2020 13:37 	 ModelRepairSimple
+m8n500s4 	 1,276,010 	 1,287,919 	 0.00933 	      17446 	 22.02.2020 13:37 	 ModelRepairSimple
+m8n1000s0 	 2,422,112 	 2,439,469 	 0.00717 	     248095 	 22.02.2020 13:41 	 ModelRepairSimple
+m8n1000s1 	 2,524,293 	 2,542,668 	 0.00728 	      39460 	 22.02.2020 13:42 	 ModelRepairSimple
+m8n1000s2 	 2,556,313 	 2,580,507 	 0.00946 	     284035 	 22.02.2020 13:47 	 ModelRepairSimple
+m8n1000s3 	 2,478,393 	 2,495,968 	 0.00709 	     283649 	 22.02.2020 13:52 	 ModelRepairSimple
+m8n1000s4 	 2,498,388 	 2,517,631 	 0.00770 	      46790 	 22.02.2020 13:52 	 ModelRepairSimple
+m8n1500s0 	 3,500,160 	 3,527,083 	 0.00769 	      93378 	 22.02.2020 13:54 	 ModelRepairSimple
+m8n1500s1 	 3,802,650 	 3,819,812 	 0.00451 	     867350 	 22.02.2020 14:08 	 ModelRepairSimple
+m8n1500s2 	 3,605,094 	 3,635,622 	 0.00847 	     335119 	 22.02.2020 14:14 	 ModelRepairSimple
+m8n1500s3 	 3,515,802 	 3,536,906 	 0.00600 	     218199 	 22.02.2020 14:18 	 ModelRepairSimple
+m8n1500s4 	 3,704,953 	 3,733,572 	 0.00772 	     119029 	 22.02.2020 14:20 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m8n1500s0 	 3,500,160 	 3,527,083 	 0.00769 	      92995 	 22.02.2020 16:16 	 ModelRepairSimple
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,448,030 	 0.12328 	      21645 	 22.02.2020 20:40 	 GreedyModel2
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,448,030 	 0.12328 	      18130 	 22.02.2020 20:42 	 GreedyModel2
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,448,030 	 0.12328 	      20102 	 22.02.2020 20:44 	 GreedyModel2
+m4n500s1 	 1,241,618 	 1,408,299 	 0.13424 	      16849 	 22.02.2020 20:44 	 GreedyModel2
+m4n500s2 	 1,283,811 	 1,451,535 	 0.13065 	      16477 	 22.02.2020 20:44 	 GreedyModel2
+m4n500s3 	 1,258,634 	 1,394,284 	 0.10778 	      15895 	 22.02.2020 20:45 	 GreedyModel2
+m4n500s4 	 1,317,077 	 1,580,297 	 0.19985 	      18746 	 22.02.2020 20:45 	 GreedyModel2
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 2,224,909 	 0.72592 	        442 	 22.02.2020 20:56 	 GreedyModel1
+m4n500s1 	 1,241,618 	 2,215,254 	 0.78417 	        129 	 22.02.2020 20:56 	 GreedyModel1
+m4n500s2 	 1,283,811 	 2,192,614 	 0.70789 	        107 	 22.02.2020 20:56 	 GreedyModel1
+m4n500s3 	 1,258,634 	 2,223,295 	 0.76643 	        147 	 22.02.2020 20:56 	 GreedyModel1
+m4n500s4 	 1,317,077 	 2,241,656 	 0.70199 	        162 	 22.02.2020 20:56 	 GreedyModel1
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 2,224,909 	 0.72592 	        472 	 23.02.2020 07:41 	 GreedyModel1
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 2,224,909 	 0.72592 	        410 	 23.02.2020 07:41 	 GreedyModel1
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 2,224,909 	 0.72592 	        355 	 23.02.2020 07:43 	 GreedyModel1
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 2,224,909 	 0.72592 	        374 	 23.02.2020 07:44 	 GreedyModel1
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,409 	 0.00566 	       1244 	 23.02.2020 07:44 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,409 	 0.00566 	       1127 	 23.02.2020 07:48 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,409 	 0.00566 	       1139 	 23.02.2020 07:49 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 2,224,909 	 0.72592 	        278 	 23.02.2020 07:50 	 GreedyModel1
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,448,030 	 0.12328 	      16509 	 23.02.2020 07:52 	 GreedyModel2
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 2,217,868 	 0.72046 	        313 	 23.02.2020 08:02 	 GreedyModel1
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,296,409 	 0.00566 	       1212 	 23.02.2020 08:06 	 ModelRepairSimple
+
+Instance 	 Best known 	 Our value 	 Percent 	 Running time 	 Date
+m4n500s0 	 1,289,114 	 1,289,114 	 0.00000 	      78657 	 23.02.2020 08:08 	 Model3D
+

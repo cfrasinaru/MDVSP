@@ -99,9 +99,11 @@ public class BipartiteMatchingRepair {
      *
      * @return
      */
-    private Solution repair(Solution sol) {
+    Solution repair(Solution sol) {
         List<Tour> tours = sol.getTours();
         List<Tour> badTours = tours.stream().filter(t -> t.isBad()).collect(Collectors.toList());
+        //List<Tour> badTours = new ArrayList<>(tours);
+        
         Map<Tour, Tour> map = new HashMap<>();
         Set<Tour> part1 = new HashSet<>();
         Set<Tour> part2 = new HashSet<>();
@@ -135,6 +137,7 @@ public class BipartiteMatchingRepair {
 
         //apply the algorithm: minimum cost perfect matching
         List<Tour> repairedTours = tours.stream().filter(t -> !t.isBad()).collect(Collectors.toList());
+        //List<Tour> repairedTours = new ArrayList<>();
         KuhnMunkresMinimalWeightBipartitePerfectMatching alg
                 = new KuhnMunkresMinimalWeightBipartitePerfectMatching(bip, part1, part2);
         MatchingAlgorithm.Matching match = alg.getMatching();

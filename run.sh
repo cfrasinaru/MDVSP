@@ -1,0 +1,1 @@
+ /opt/jdk-13.0.2/bin/java -jar MDVSP-1.1-jar-with-dependencies.jar

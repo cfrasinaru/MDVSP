@@ -9,8 +9,8 @@ import ro.uaic.info.mdvsp.Model;
 
 public class ModelRelaxed extends AbstractModel2D {
 
-    private int y[]; //y[i] = the closest depot for trip i
-    
+    private int y[]; //y[i] = the closest returning depot for trip i
+
     public ModelRelaxed(String filename) throws IOException {
         super(filename);
     }
@@ -19,7 +19,6 @@ public class ModelRelaxed extends AbstractModel2D {
         super(other);
     }
 
-    
     @Override
     protected void createConstraints() throws GRBException {
         //Constraints: in each trip enters one vehicle, exits one vehicle
@@ -57,7 +56,7 @@ public class ModelRelaxed extends AbstractModel2D {
     }
 
     private void computeNearestDepots() {
-        y = new int[n]; //y[i] = the nearest depot for trip i
+        y = new int[n];
         for (int i = 0; i < n; i++) {
             int minCost = Integer.MAX_VALUE;
             int minDepot = -1;
@@ -70,7 +69,7 @@ public class ModelRelaxed extends AbstractModel2D {
             y[i] = minDepot;
         }
     }
-    
+
     @Override
     protected void createObjective() throws GRBException {
         double factor = Config.getClusterFactor();
@@ -81,6 +80,7 @@ public class ModelRelaxed extends AbstractModel2D {
                 if (x[i][j] != null) {
                     if (i >= m && j < m) {
                         expr.addTerm(cost[i][j] + (cost[i][j] - cost[i][y[i - m]]) * factor, x[i][j]);
+                        //expr.addTerm(cost[i][j] + Math.abs(j - y[i - m]) * factor, x[i][j]);
                     } else {
                         expr.addTerm(cost[i][j], x[i][j]);
                     }
@@ -89,5 +89,5 @@ public class ModelRelaxed extends AbstractModel2D {
         }
         model.setObjective(expr, GRB.MINIMIZE);
     }
-    
+
 }

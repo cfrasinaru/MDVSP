@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ro.uaic.info.mdvsp;
 
 import java.io.IOException;
@@ -138,7 +133,7 @@ public class Tour extends ArrayList<Integer> implements Comparable<Tour> {
                 return -1;
             }
             if (this.get(i) > other.get(i)) {
-                return -1;
+                return 1;
             }
         }
         return this.size() - other.size();

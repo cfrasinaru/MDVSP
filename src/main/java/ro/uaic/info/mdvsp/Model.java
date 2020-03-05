@@ -36,10 +36,11 @@ public abstract class Model {
     protected List<Solution> initialSolutions = new ArrayList<>();
 
     protected double tolerance = .00001;
-    protected int populateLimit = 1;
+    protected int poolSolutions = 1;
     protected int timeLimit = 0; //
     protected boolean outputEnabled = false;
 
+    protected int knownOptimum = -1; //known knownOptimum
     protected long runningTime;
 
     /**
@@ -55,7 +56,7 @@ public abstract class Model {
         if (!filename.contains("/")) {
             this.dataFile = Config.getDataPath() + this.dataFile;
         }
-            read(this.dataFile);
+        read(this.dataFile);
     }
 
     /**
@@ -78,7 +79,7 @@ public abstract class Model {
         this.m = other.m;
         this.nbVehicles = other.nbVehicles;
         this.cost = other.cost;
-        this.populateLimit = other.populateLimit;
+        this.poolSolutions = other.poolSolutions;
         this.outputEnabled = other.outputEnabled;
     }
 
@@ -144,27 +145,43 @@ public abstract class Model {
     }
 
     /**
-     * @return the populateLimit
+     *
+     * @return
      */
-    public int getPopulateLimit() {
-        return populateLimit;
+    public int nbArcs() {
+        int nbArcs = 0;
+        for (int i = 0; i < n + m; i++) {
+            for (int j = 0; j < n + m; j++) {
+                if (cost[i][j] > 0) {
+                    nbArcs++;
+                }
+            }
+        }
+        return nbArcs;
     }
 
     /**
-     * @param populateLimit the populateLimit to set
+     * @return the poolSolutions
      */
-    public void setPopulateLimit(int populateLimit) {
-        this.populateLimit = populateLimit;
+    public int getPoolSolutions() {
+        return poolSolutions;
     }
 
     /**
-     * 
-     * @return 
+     * @param poolSolutions the poolSolutions to set
+     */
+    public void setPoolSolutions(int poolSolutions) {
+        this.poolSolutions = poolSolutions;
+    }
+
+    /**
+     *
+     * @return
      */
     public Solution getInitialSolution() {
         return initialSolutions.isEmpty() ? null : initialSolutions.get(0);
     }
-    
+
     /**
      * @return the initialSolutions
      */
@@ -263,8 +280,12 @@ public abstract class Model {
         return runningTime;
     }
 
+    /**
+     * Creates a graph without depots. This a acyclic (DAG).
+     *
+     * @return
+     */
     protected DirectedAcyclicGraph createReducedGraph() {
-        System.out.print("Creating reduced graph...");
         DirectedAcyclicGraph g = new DirectedAcyclicGraph(DefaultEdge.class);
         for (int i = m; i < n + m; i++) {
             g.addVertex(i);
@@ -276,7 +297,6 @@ public abstract class Model {
                 }
             }
         }
-        System.out.println("Done.");
         return g;
     }
 
@@ -284,7 +304,7 @@ public abstract class Model {
      *
      */
     protected void createGraph() {
-        System.out.print("Creating graph...");
+        //System.out.print("Creating graph...");
         graph = new SimpleDirectedWeightedGraph(DefaultWeightedEdge.class);
         for (int i = 0; i < n + m; i++) {
             graph.addVertex(i);
@@ -297,7 +317,7 @@ public abstract class Model {
                 }
             }
         }
-        System.out.println("Done.");
+        //System.out.println("Done.");
         /*
         for (int i = 0; i < n + m; i++) {
             List<Integer> nb = new ArrayList<>();
@@ -403,6 +423,20 @@ public abstract class Model {
                 }
             }
         }
+    }
+
+    /**
+     * @return the knownOptimum
+     */
+    public int getKnownOptimum() {
+        return knownOptimum;
+    }
+
+    /**
+     * @param knownOptimum the knownOptimum to set
+     */
+    public void setKnownOptimum(int knownOptimum) {
+        this.knownOptimum = knownOptimum;
     }
 
     @Override

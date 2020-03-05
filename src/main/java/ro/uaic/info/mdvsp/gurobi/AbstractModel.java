@@ -39,10 +39,10 @@ public abstract class AbstractModel extends Model {
         model.set(GRB.DoubleParam.MIPGap, 0);
 
         //multiple solutions
-        if (populateLimit > 1) {
-            model.set(GRB.DoubleParam.PoolGap, 0.1);
-            model.set(GRB.IntParam.PoolSolutions, populateLimit);
-            model.set(GRB.IntParam.PoolSearchMode, 1);
+        if (poolSolutions > 1) {
+            model.set(GRB.DoubleParam.PoolGap, Config.getDouble("poolGap", 0.1));
+            model.set(GRB.IntParam.PoolSolutions, poolSolutions);
+            model.set(GRB.IntParam.PoolSearchMode, Config.getInt("poolSerchMode", 1)); //2 is better but slooow
         }
 
         //time
@@ -83,7 +83,7 @@ public abstract class AbstractModel extends Model {
             System.out.println("Objective Value: " + model.get(GRB.DoubleAttr.ObjVal));
         }
 
-        if (populateLimit == 1) {
+        if (poolSolutions == 1) {
             extractSolution();
         } else {
             int ns = model.get(GRB.IntAttr.SolCount);
@@ -103,7 +103,7 @@ public abstract class AbstractModel extends Model {
         optimize();
     }
 
-    protected abstract void extractSolution();
+    protected abstract Solution extractSolution();
 
     protected abstract void extractSolutions();
 

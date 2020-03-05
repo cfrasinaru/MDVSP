@@ -50,7 +50,7 @@ public class Model3D extends AbstractModel {
         int ns = initialSolutions.size();
         if (ns == 0) {
             return;
-        }        
+        }
         model.set(GRB.IntAttr.NumStart, ns);
         for (int q = 0; q < ns; q++) {
             Solution sol = initialSolutions.get(q);
@@ -127,7 +127,7 @@ public class Model3D extends AbstractModel {
     }
 
     @Override
-    protected void extractSolution() {
+    protected Solution extractSolution() {
         Solution sol = new Solution(this);
         try {
             for (int k = 0; k < m; k++) {
@@ -140,8 +140,10 @@ public class Model3D extends AbstractModel {
                 }
             }
             solutions.add(sol);
+            return sol;
         } catch (GRBException e) {
             System.err.println(e);
+            return null;
         }
     }
 

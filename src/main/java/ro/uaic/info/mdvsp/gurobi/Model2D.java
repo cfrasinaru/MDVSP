@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class Model2D extends AbstractModel2D {
 
-    private GRBVar y[][];
+    private GRBVar y[][]; //y[i][k] = 1 : trip i is assigned to depot k
 
     public Model2D(String filename) throws IOException {
         super(filename);
@@ -70,6 +70,7 @@ public class Model2D extends AbstractModel2D {
         }
 
         //y constraints
+        //it cannot be that trip i is NOT assigned to depot k but x[i][k]=1 or x[k][i]=1
         for (int i = 0; i < n; i++) {
             for (int k = 0; k < m; k++) {
                 model.addConstr(x[k][m + i], GRB.LESS_EQUAL, y[i][k], "depotStartLink" + i + "_" + k);
@@ -78,6 +79,7 @@ public class Model2D extends AbstractModel2D {
         }
 
         //y constraints
+        //it must be one and only one depot k for a trip i
         for (int i = 0; i < n; i++) {
             GRBLinExpr sum = new GRBLinExpr();
             for (int k = 0; k < m; k++) {
@@ -85,8 +87,11 @@ public class Model2D extends AbstractModel2D {
             }
             model.addConstr(sum, GRB.EQUAL, 1, "uniqueDepotFor" + i);
         }
+        
+        
 
         //y constraints
+        //if trip j comes after trip i, they are assigned to the same depot
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (x[m + i][m + j] == null) {

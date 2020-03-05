@@ -5,6 +5,8 @@ package ro.uaic.info.mdvsp;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -13,12 +15,8 @@ import java.util.Properties;
  */
 public class Config {
 
-    private static String dataPath;
-    private static String algorithm;
     private static Properties props;
-    private static Boolean outputEnabled;
-    private static Integer populateLimit;
-    private static Integer timeLimit;
+    private static final Map<String, Object> MAP = new HashMap<>();
 
     private static String solve;
     private static Integer depotsMin;
@@ -27,8 +25,6 @@ public class Config {
     private static Integer tripsMax;
     private static Integer instanceMin;
     private static Integer instanceMax;
-    
-    private static Double clusterFactor;
 
     static {
         init();
@@ -46,72 +42,67 @@ public class Config {
         }
     }
 
-    /**
-     *
-     * @return
-     */
+    private static Object get(String key, Object defaultValue) {
+        Object value = MAP.get(key);
+        if (value == null) {
+            String str = props.getProperty(key);
+            if (str == null) {
+                value = defaultValue;
+            } else {
+                if (defaultValue instanceof String) {
+                    value = str;
+                } else if (defaultValue instanceof Boolean) {
+                    value = Boolean.parseBoolean(str);
+                } else if (defaultValue instanceof Integer) {
+                    value = Integer.parseInt(str);
+                } else if (defaultValue instanceof Double) {
+                    value = Double.parseDouble(str);
+                }
+            }
+            MAP.put(key, value);
+        }        
+        return value;
+    }
+
+    public static String getString(String key, String defaultValue) {
+        return (String) get(key, defaultValue);
+    }
+
+    public static boolean getBoolean(String key, boolean defaultValue) {
+        return (Boolean) get(key, defaultValue);
+    }
+
+    public static int getInt(String key, int defaultValue) {
+        return (Integer) get(key, defaultValue);
+    }
+
+    public static double getDouble(String key, double defaultValue) {
+        return (Double) get(key, defaultValue);
+    }
+
     public static String getDataPath() {
-        if (dataPath == null) {
-            dataPath = props.getProperty("data", "../MDVSP-data/");
-        }
-        return dataPath;
+        return getString("data", "../MDVSP-data/");
     }
-    
-    /**
-     *
-     * @return
-     */
+
     public static String getAlgorithm() {
-        if (algorithm == null) {
-            algorithm = props.getProperty("algorithm", "simple");
-        }
-        return algorithm;
+        return getString("algorithm", "simple");
     }
 
-    /**
-     *
-     * @return
-     */
     public static boolean isOutputEnabled() {
-        if (outputEnabled == null) {
-            outputEnabled = Boolean.valueOf(props.getProperty("output", "false"));
-        }
-        return outputEnabled;
+        return getBoolean("output", false);
     }
 
-    /**
-     *
-     * @return
-     */
-    public static int getPopulateLimit() {
-        if (populateLimit == null) {
-            populateLimit = Integer.parseInt(props.getProperty("populateLimit", "1"));
-        }
-        return populateLimit;
+    public static int getPoolSolutions() {
+        return getInt("poolSolutions", 1);
     }
 
-    /**
-     *
-     * @return
-     */
     public static int getTimeLimit() {
-        if (timeLimit == null) {
-            timeLimit = Integer.parseInt(props.getProperty("timeLimit", "5*60"));
-        }
-        return timeLimit;
+        return getInt("timeLimit", 5 * 60);
     }
-    
-    /**
-     *
-     * @return
-     */
+
     public static double getClusterFactor() {
-        if (clusterFactor == null) {
-            clusterFactor = Double.parseDouble(props.getProperty("clusterFactor", "0"));
-        }
-        return clusterFactor;
+        return getDouble("clusterFactor", 0.0);
     }
-    
 
     public static int getDepotsMin() {
         if (solve == null) {
@@ -167,7 +158,10 @@ public class Config {
         instanceMin = Integer.parseInt(tokens[4]);
         instanceMax = Integer.parseInt(tokens[5]);
         return solve;
-
+    }
+    
+    public static String asString() {
+        return props.toString();
     }
 
 }

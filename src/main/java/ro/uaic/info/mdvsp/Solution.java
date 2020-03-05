@@ -13,12 +13,12 @@ import java.util.stream.Collectors;
  * @author Cristian Frăsinaru
  */
 public class Solution {
-    
+
     private final Model model;
     private final int n; //trips
     private final int m; //depots
     private final int[][] cost;
-    
+
     private final int x[][];
     private List<Tour> tours;
 
@@ -67,6 +67,13 @@ public class Solution {
     }
 
     /**
+     * To force tours reconstruction.
+     */
+    public void clearTours() {
+        tours = null;
+    }
+
+    /**
      *
      * @return
      */
@@ -104,7 +111,7 @@ public class Solution {
         }
         return total;
     }
-    
+
     private void createTours() {
         this.tours = new ArrayList<>();
         boolean visited[] = new boolean[n + m];
@@ -131,7 +138,7 @@ public class Solution {
             }
         }
     }
-    
+
     private int findNext(int i) {
         if (i < m) {
             return -1;
@@ -181,32 +188,69 @@ public class Solution {
      */
     @Override
     public String toString() {
-        return toursToString();
+        return toursToStringDetailed();
     }
 
-    /**
-     *
-     * @return
-     */
-    public String toursToString() {
+    public String toursToStringSimple() {
         getTours();
         StringBuilder sb = new StringBuilder();
+        int count = 0;
         for (Tour tour : getTours()) {
-            sb.append(tourToString(tour)).append("\n");
+            count++;
+            sb.append("#").append(count).append("=").append(tour.size()).append("\t:");
+            sb.append(tourToString(tour, false)).append("\n");
         }
         return sb.toString();
     }
     
-    private String tourToString(Tour tour) {
+    /**
+     *
+     * @return
+     */
+    public String toursToStringDetailed() {
+        getTours();
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+        for (Tour tour : getTours()) {
+            count++;
+            sb.append("#").append(count).append("=").append(tour.size()).append("\t:");
+            sb.append(tourToString(tour, true)).append("\n");
+        }
+        return sb.toString();
+    }
+
+    private String tourToString(Tour tour, boolean detailed) {
         StringBuilder sb = new StringBuilder();
         sb.append(tour.get(0));
         for (int i = 1; i < tour.size(); i++) {
             int t0 = tour.get(i - 1);
             int t1 = tour.get(i);
-            sb.append("--(").append(cost[t0][t1]).append(")-->").append(t1);
+            if (detailed) {
+            sb.append(" --(").append(cost[t0][t1]).append(";").append(position(t1, t0)).append(")--> ").append(t1);
+            } else {
+                sb.append("\t").append(t1);
+            }
         }
         //sb.append(" [").append(id).append("]");
         return sb.toString();
+    }
+
+    /*
+    * The index of i in neighbors(j)
+     */
+    private String position(int i, int j) {
+        int pos = 0; //rank
+        int total = 0; //total nb of neighbors
+        for (int k = 0; k < n + m; k++) {
+            if (k == i || cost[j][k] < 0) {
+                continue;
+            }
+            total++;
+            if (cost[j][k] < cost[j][i]) {
+                pos++;
+            }
+        }
+        return pos + "/" + total;
     }
 
     /**
@@ -225,7 +269,7 @@ public class Solution {
         }
         return sb.toString();
     }
-    
+
     public String usedVehiclesToString() {
         int nbv[] = getUsedVehicles();
         StringBuilder sb = new StringBuilder();
@@ -272,9 +316,9 @@ public class Solution {
                 throw new InvalidSolutionException("Bad tour " + t);
             }
         }
-        
+
     }
-    
+
     private int rowSum(int i) {
         int sum = 0;
         for (int j = 0; j < m + n; j++) {
@@ -282,7 +326,7 @@ public class Solution {
         }
         return sum;
     }
-    
+
     private int colSum(int i) {
         int sum = 0;
         for (int j = 0; j < m + n; j++) {
@@ -290,5 +334,5 @@ public class Solution {
         }
         return sum;
     }
-    
+
 }

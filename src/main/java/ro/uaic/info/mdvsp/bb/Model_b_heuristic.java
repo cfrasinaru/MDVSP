@@ -29,7 +29,6 @@ import gurobi.GRB.DoubleParam;
 import gurobi.GRB.IntParam;
 import gurobi.GRB.StringAttr;
 import ro.uaic.info.mdvsp.Config;
-import ro.uaic.info.mdvsp.Main;
 import ro.uaic.info.mdvsp.Model;
 import ro.uaic.info.mdvsp.Solution;
 //import gurobi.GRB.StringParam;
@@ -42,15 +41,16 @@ public class Model_b_heuristic extends Model {
     public double[][] sol = new double[n + m][n + m];
     public GRBEnv env;
     public GRBModel model;
-    public static final int[][] instances = {{1289114, 2516247, 3830912, 1292411, 2422112, 3500160},
-    {1241618, 2413393, 3559176, 1276919, 2524293, 3802650},
-    {1283811, 2452905, 3649757, 1304251, 2556313, 3605094},
-    {1258634, 2490812, 3406815, 1277838, 2478393, 3515802},
-    {1317077, 2519191, 3567122, 1276010, 2498388, 3704953}}; // new int[5][6];
+    public static final int[][] instances = {
+        {1289114, 2516247, 3830912, 1292411, 2422112, 3500160},
+        {1241618, 2413393, 3559176, 1276919, 2524293, 3802650},
+        {1283811, 2452905, 3649757, 1304251, 2556313, 3605094},
+        {1258634, 2490812, 3406815, 1277838, 2478393, 3515802},
+        {1317077, 2519191, 3567122, 1276010, 2498388, 3704953}}; // new int[5][6];
     public static final double precision_a = 1e-9;
     public static final double precision_b = 1e-15;
     public static final double precision_c = 1e-5;
-    
+
     /**
      *
      * @param filename
@@ -228,9 +228,9 @@ public class Model_b_heuristic extends Model {
         ArrayList<subPathVars>[] new_corrected_list = (ArrayList<subPathVars>[]) new ArrayList[m * m + m];
         for (int i = 0; i < corrected_list.length; i++) {
             if (corrected_list[i] != null && corrected_list[i].size() > 0) {
-                new_corrected_list[i] = new ArrayList<subPathVars>(corrected_list[i]);
+                new_corrected_list[i] = new ArrayList<>(corrected_list[i]);
             } else {
-                new_corrected_list[i] = new ArrayList<subPathVars>();
+                new_corrected_list[i] = new ArrayList<>();
             }
         }
         return new_corrected_list;
@@ -1581,7 +1581,7 @@ public class Model_b_heuristic extends Model {
             model.set(IntParam.OutputFlag, 0);
             model.optimize();
 
-            // find an upper bound for the optimum in the MILP problem (minimization):
+            // find an upper bound for the knownOptimum in the MILP problem (minimization):
             addIntegerConstraints();
             model.update();
             if (gap == 0.0) {
@@ -1758,7 +1758,7 @@ public class Model_b_heuristic extends Model {
             model.set(IntParam.OutputFlag, 0);
             model.optimize();
 
-            // find an upper bound for the optimum in the MILP problem (minimization):
+            // find an upper bound for the knownOptimum in the MILP problem (minimization):
             addIntegerConstraints();
             model.update();
             if (gap == 0.0) {
@@ -1896,7 +1896,8 @@ public class Model_b_heuristic extends Model {
         double opt = 0, best_int_opt = 0, kn_opt = 0;
         String dataFileInt1 = "Int1_" + dataFile;
         String lpDataFile = convert(dataFile, "");
-        kn_opt = instances[inst][(int) (0.75 * m - 3.0 + n / 500.0 - 1.0)];
+        //kn_opt = instances[inst][(int) (0.75 * m - 3.0 + n / 500.0 - 1.0)];
+        kn_opt = knownOptimum;
         ArrayList<subPathVars>[] correctd_list;
         try {
             env = new GRBEnv();
@@ -1933,8 +1934,7 @@ public class Model_b_heuristic extends Model {
                 System.out.println("MILP optimization time = " + (System.nanoTime() - start) * 1e-9);
             }
             //-----------------------STOP
-            
-            
+
             /*
             start = System.nanoTime();
             correctd_list = repairSubtours();
@@ -1948,8 +1948,7 @@ public class Model_b_heuristic extends Model {
                 System.out.println("Repairing time = " + (System.nanoTime() - start) * 1e-9);
             }
             verify();
-            */
-            
+             */
             //----------------
             extractSolution();
             //----------------
@@ -1993,7 +1992,11 @@ public class Model_b_heuristic extends Model {
 
     @Override
     protected void _solve() throws Exception {
-        repairHeuristic1(10, 0.0, 20);
+        try {
+            repairHeuristic1(10, 0.0, 20);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
