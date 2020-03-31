@@ -28,7 +28,6 @@ public abstract class Model {
     protected int m; //depots
     protected int n; //trips
     protected int nbVehicles[];
-    protected int totalVehicles = 0;
     protected int cost[][];
 
     protected SimpleDirectedWeightedGraph<Integer, DefaultWeightedEdge> graph;
@@ -41,7 +40,12 @@ public abstract class Model {
     protected boolean outputEnabled = false;
 
     protected int knownOptimum = -1; //known knownOptimum
-    protected long runningTime;
+
+    protected long runningTime = -1;
+    protected long startTime;
+
+    protected Model() {
+    }
 
     /**
      *
@@ -89,6 +93,10 @@ public abstract class Model {
         this.n = n;
         this.nbVehicles = new int[m];
         this.cost = new int[m + n][m + n];
+        setPoolSolutions(Config.getPoolSolutions());
+        setOutputEnabled(Config.isOutputEnabled());
+        setTimeLimit(Config.getTimeLimit());
+
     }
 
     /**
@@ -241,13 +249,13 @@ public abstract class Model {
         if (outputEnabled) {
             System.out.println("Solving " + name);
         }
-        long t0 = System.currentTimeMillis();
+        startTime = System.currentTimeMillis();
         try {
             _solve();
         } catch (Exception ex) {
             System.err.println(ex);
         }
-        runningTime = System.currentTimeMillis() - t0;
+        runningTime = System.currentTimeMillis() - startTime;
         return getSolution();
     }
 
@@ -277,7 +285,26 @@ public abstract class Model {
      * @return the runningTime
      */
     public long getRunningTime() {
+        if (runningTime < 0) {
+            return System.currentTimeMillis() - startTime;
+        }
         return runningTime;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isTimeLimitReached() {
+        return getRunningTime() > Config.getTimeLimit() * 1000;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public long getStartTime() {
+        return startTime;
     }
 
     /**
@@ -437,6 +464,31 @@ public abstract class Model {
      */
     public void setKnownOptimum(int knownOptimum) {
         this.knownOptimum = knownOptimum;
+    }
+
+    /**
+     *
+     * @param tour
+     * @return
+     */
+    public int computeCost(Tour tour) {
+        int c = 0;
+        int sz = tour.size();
+        for (int i = 0; i < sz - 1; i++) {
+            c += cost[tour.get(i)][tour.get(i + 1)];
+        }
+        return c;
+    }
+
+    /**
+     *
+     * @param list
+     * @return
+     */
+    public int computeCost(List<Tour> list) {
+        int c = 0;
+        c = list.stream().map(t -> computeCost(t)).reduce(c, Integer::sum);
+        return c;
     }
 
     @Override

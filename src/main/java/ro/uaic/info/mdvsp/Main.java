@@ -13,7 +13,8 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ro.uaic.info.mdvsp.bb.Model_b_heuristic;
-import ro.uaic.info.mdvsp.greedy.GreedyModel2;
+import ro.uaic.info.mdvsp.bb2.Model_d_heuristic;
+import ro.uaic.info.mdvsp.greedy.GreedyModel1;
 import ro.uaic.info.mdvsp.gurobi.*;
 
 /**
@@ -101,15 +102,14 @@ public class Main {
             //Model pb = new RepairModel(new IterativeModel(name));
             //Model pb = new RepairModel(new RandomModel(name));
             //Model pb = new MergeDepotsModel(name);
+            //Model pb = new MetaheuristicModel(new RepairModel(new ModelRelaxed(name)));
+            //Model pb = new MetaheuristicModel(new GreedyModel1(name));
 
             Model pb = getModel(name);
             if (pb == null) {
                 return;
             }
             pb.setKnownOptimum(BEST.get(name));
-            pb.setPoolSolutions(Config.getPoolSolutions());
-            pb.setOutputEnabled(Config.isOutputEnabled());
-            pb.setTimeLimit(Config.getTimeLimit());
 
             Solution sol = pb.solve();
             if (sol != null && true) {
@@ -133,6 +133,16 @@ public class Main {
                 return new RepairModel(new Model_b_heuristic(name));
             case "exact":
                 return new Model3D(name);
+            case "meta":
+                return new MetaheuristicModel(new RepairModel(new ModelRelaxed(name)));
+            case "meta-greedy":
+                return new MetaheuristicModel(new GreedyModel1(name));
+            case "Bellman":
+                return new RepairModel(new Model_d_heuristic(name, 0));
+            case "DagSP":
+                return new RepairModel(new Model_d_heuristic(name, 1));
+            case "DagSPNew":
+                return new RepairModel(new Model_d_heuristic(name, 2));
         }
         throw new IllegalArgumentException("Invalid algorithm: " + name);
     }
@@ -154,7 +164,7 @@ public class Main {
 
         //System.out.println("Bad tours: " + sol.getBadTours().size() + "/" + sol.getTours().size());
         //System.out.println(sol.toursToStringDetailed());
-        //sol.getBadTours().stream().filter(t -> t.size() <= 5).forEach(System.out::println);
+        //sol.getBadTours().stream().filter(t -> t.size() <= 5).forEach(System.out::println);        
     }
 
     private void writeResult(Model pb) {
@@ -172,7 +182,7 @@ public class Main {
         resWriter.println(str);
         resWriter.flush();
 
-        System.out.println(str);
+        System.out.println("\n" + str);
     }
 
 }

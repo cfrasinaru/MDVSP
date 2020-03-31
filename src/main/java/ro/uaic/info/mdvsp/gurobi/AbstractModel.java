@@ -16,6 +16,7 @@ public abstract class AbstractModel extends Model {
 
     protected GRBEnv env;
     protected GRBModel model;
+    protected boolean zeroMipGap = true;
 
     public AbstractModel(String filename) throws IOException {
         super(filename);
@@ -35,8 +36,10 @@ public abstract class AbstractModel extends Model {
         this.model = new GRBModel(env);
 
         //integrality
-        model.set(GRB.DoubleParam.MIPGapAbs, 0);
-        model.set(GRB.DoubleParam.MIPGap, 0);
+        if (zeroMipGap) {
+            model.set(GRB.DoubleParam.MIPGapAbs, 0);
+            model.set(GRB.DoubleParam.MIPGap, 0);
+        }
 
         //multiple solutions
         if (poolSolutions > 1) {
@@ -92,6 +95,8 @@ public abstract class AbstractModel extends Model {
             }
             extractSolutions();
         }
+
+        dispose();
     }
 
     @Override
@@ -107,4 +112,22 @@ public abstract class AbstractModel extends Model {
 
     protected abstract void extractSolutions();
 
+    /**
+     * 
+     * @return 
+     */
+    public boolean isZeroMipGap() {
+        return zeroMipGap;
+    }
+
+    /**
+     * 
+     * @param zeroMipGap 
+     */
+    public void setZeroMipGap(boolean zeroMipGap) {
+        this.zeroMipGap = zeroMipGap;
+    }
+
+    
+    
 }

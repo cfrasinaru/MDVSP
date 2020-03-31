@@ -18,13 +18,8 @@ package ro.uaic.info.mdvsp.gurobi;
 
 import gurobi.GRB;
 import gurobi.GRBException;
-import gurobi.GRBLinExpr;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-import ro.uaic.info.mdvsp.Solution;
-import ro.uaic.info.mdvsp.Tour;
 
 /**
  * Solve the relaxed problem - Create constraints based on bad tours - Repeat.

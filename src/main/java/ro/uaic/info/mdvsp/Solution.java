@@ -28,11 +28,34 @@ public class Solution {
      * @param model
      */
     public Solution(Model model) {
+        this(model, null);
+    }
+
+    /**
+     * Creates a solution based on a list of tours.
+     *
+     * @param model
+     * @param tours
+     */
+    public Solution(Model model, List<Tour> tours) {
         this.model = model;
         this.n = model.nbTrips();
         this.m = model.nbDepots();
         this.cost = model.getCost();
         this.x = new int[m + n][m + n];
+        if (tours != null) {
+            setTours(tours);
+        }
+    }
+
+    private void setTours(List<Tour> tours) {
+        this.tours = tours;
+        for (Tour tour : tours) {
+            int sz = tour.size();
+            for (int i = 0; i < sz - 1; i++) {
+                x[tour.get(i)][tour.get(i + 1)] = 1;
+            }
+        }
     }
 
     /**
@@ -202,7 +225,7 @@ public class Solution {
         }
         return sb.toString();
     }
-    
+
     /**
      *
      * @return
@@ -226,7 +249,7 @@ public class Solution {
             int t0 = tour.get(i - 1);
             int t1 = tour.get(i);
             if (detailed) {
-            sb.append(" --(").append(cost[t0][t1]).append(";").append(position(t1, t0)).append(")--> ").append(t1);
+                sb.append(" --(").append(cost[t0][t1]).append(";").append(position(t1, t0)).append(")--> ").append(t1);
             } else {
                 sb.append("\t").append(t1);
             }
@@ -291,10 +314,10 @@ public class Solution {
             int rowSum = rowSum(i);
             int colSum = colSum(i);
             if (rowSum > nv) {
-                throw new InvalidSolutionException("Too many vehicles starting from depot " + i + ": " + rowSum);
+                throw new InvalidSolutionException("Too many vehicles starting from depot " + i + ": " + rowSum + " > " + nv);
             }
             if (colSum > nv) {
-                throw new InvalidSolutionException("Too many vehicles returning at depot " + i + ": " + colSum);
+                throw new InvalidSolutionException("Too many vehicles returning at depot " + i + ": " + colSum + " > " + nv);
             }
             if (rowSum != colSum) {
                 throw new InvalidSolutionException("Different number of starting and returning vehicles at depot "
