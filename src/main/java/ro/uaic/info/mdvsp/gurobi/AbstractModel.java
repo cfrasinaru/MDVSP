@@ -26,6 +26,10 @@ public abstract class AbstractModel extends Model {
         super(other);
     }
 
+    public AbstractModel(Instance instance) {
+        super(instance);
+    }
+
     protected void start() throws GRBException {
         // Create empty environment, set options, and start
         env = new GRBEnv(true);
@@ -113,21 +117,19 @@ public abstract class AbstractModel extends Model {
     protected abstract void extractSolutions();
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public boolean isZeroMipGap() {
         return zeroMipGap;
     }
 
     /**
-     * 
-     * @param zeroMipGap 
+     *
+     * @param zeroMipGap
      */
     public void setZeroMipGap(boolean zeroMipGap) {
         this.zeroMipGap = zeroMipGap;
     }
 
-    
-    
 }

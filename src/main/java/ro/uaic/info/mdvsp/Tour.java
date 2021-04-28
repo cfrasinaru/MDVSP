@@ -14,6 +14,7 @@ import java.util.List;
 public class Tour extends ArrayList<Integer> implements Comparable<Tour> {
 
     private int id;
+    private int component = 0;
 
     public Tour() {
         id = 0;
@@ -47,15 +48,71 @@ public class Tour extends ArrayList<Integer> implements Comparable<Tour> {
         this.id = id;
     }
 
+    /**
+     * @return the component
+     */
+    public int getComponent() {
+        return component;
+    }
+
+    /**
+     * @param component the component to set
+     */
+    public void setComponent(int component) {
+        this.component = component;
+    }
+
+    /**
+     *
+     * @param model
+     * @return
+     */
     public int getCost(Model model) {
+        return getCost(model.cost);
+    }
+
+    /**
+     *
+     * @param costMatrix
+     * @return
+     */
+    public int getCost(int[][] costMatrix) {
         int cost = 0;
         int prev = get(0);
         for (int j = 1; j < size(); j++) {
             int next = get(j);
-            cost += model.cost[prev][next];
+            cost += costMatrix[prev][next];
             prev = next;
         }
         return cost;
+    }
+
+    /**
+     * 
+     * @param costMatrix
+     * @return 
+     */
+    public int pullOutCost(int[][] costMatrix) {
+        return costMatrix[first()][second()];
+    }
+
+    /**
+     * 
+     * @param costMatrix
+     * @return 
+     */
+    public int pullInCost(int[][] costMatrix) {
+        return costMatrix[lastButOne()][last()];
+    }
+    
+    /**
+     *
+     * @param amount
+     */
+    public void incrementTrips(int amount) {
+        for (int i = 1; i < size() - 1; i++) {
+            set(i, get(i) + amount);
+        }
     }
 
     public static List<Tour> load(String filename) {
@@ -104,6 +161,18 @@ public class Tour extends ArrayList<Integer> implements Comparable<Tour> {
         return toString("->");
     }
 
+    //trip1 is from tour1, trip2 is from tour2
+    public static Tour combine(Tour tour1, Tour tour2, int trip1, int trip2) {
+        Tour tour = new Tour();
+        for (int i = 0; i <= tour1.indexOf(trip1); i++) {
+            tour.add(tour1.get(i));
+        }
+        for (int i = tour2.indexOf(trip2); i < tour2.size(); i++) {
+            tour.add(tour2.get(i));
+        }
+        return tour;
+    }
+
     /**
      *
      * @param delimiter
@@ -112,13 +181,24 @@ public class Tour extends ArrayList<Integer> implements Comparable<Tour> {
     public String toString(String delimiter) {
         StringBuilder sb = new StringBuilder();
         sb.append(get(0));
-        for (int i = 1; i < size(); i++) {            
+        for (int i = 1; i < size(); i++) {
             sb.append(delimiter).append(get(i));
         }
         //sb.append(" [").append(id).append("]");
         return sb.toString();
     }
 
+    public String toDetailedString(int cost[][]) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(get(0));
+        for (int i = 1; i < size(); i++) {
+            int t0 = get(i - 1);
+            int t1 = get(i);
+            sb.append(" --(").append(cost[t0][t1]).append(")--> ").append(t1);
+        }
+        return sb.toString();
+    }
+    
     @Override
     public int compareTo(Tour other) {
         if (this.id != 0 && other.id != 0) {
@@ -166,7 +246,10 @@ public class Tour extends ArrayList<Integer> implements Comparable<Tour> {
 
     @Override
     public int hashCode() {
-        return System.identityHashCode(this);
+        int hash = super.hashCode();
+        hash = 19 * hash + this.id;
+        hash = 19 * hash + this.component;
+        return hash;
     }
 
 }

@@ -1,1 +1,1 @@
-"C:\Program Files\Java\jdk-11.0.3\bin\java" -Xms4G -Xmx64G -jar mdvsp.jar
+"C:\Program Files\Java\jdk-13.0.2\bin\java" -Xms4G -Xmx64G -jar mdvsp.jar

@@ -67,7 +67,7 @@ public class Model_d_heuristic extends Model {
     }
 
     public String convert(String dataFile, String vtype) {
-        File file = new File(Config.getDataPath() + dataFile);
+        File file = new File(dataFile);
         String lp_fileName = "lp_" + name + ".lp";
         File lp_file = new File(Config.getDataPath() + "results/" + lp_fileName);
         BufferedReader reader = null;

@@ -19,6 +19,10 @@ public abstract class AbstractModel2D extends AbstractModel {
         super(other);
     }
     
+    public AbstractModel2D(Instance instance) {
+        super(instance);
+    }    
+    
     @Override
     protected void createVariables() throws GRBException {
         // Create variables

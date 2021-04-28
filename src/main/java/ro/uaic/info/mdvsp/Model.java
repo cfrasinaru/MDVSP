@@ -24,6 +24,7 @@ import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 public abstract class Model {
 
     protected String dataFile;
+    
     protected String name;
     protected int m; //depots
     protected int n; //trips
@@ -62,7 +63,7 @@ public abstract class Model {
         }
         read(this.dataFile);
     }
-
+    
     /**
      *
      * @param name
@@ -87,16 +88,51 @@ public abstract class Model {
         this.outputEnabled = other.outputEnabled;
     }
 
+    /**
+     * 
+     * @param name
+     * @param m
+     * @param n
+     * @param nbVehicles
+     * @param cost 
+     */
+    public Model(String name, int m, int n, int[] nbVehicles, int[][]cost) {
+        this.name = name;
+        this.n = n;
+        this.m = m;
+        this.nbVehicles = nbVehicles;
+        this.cost = cost;
+        initParams();
+    }
+    
+    /**
+     * 
+     * @param instance 
+     */
+    public Model(Instance instance) {
+        this.name = instance.name;
+        this.n = instance.n;
+        this.m = instance.m;
+        this.nbVehicles = instance.nbVehicles;
+        this.cost = instance.cost;
+        this.knownOptimum = instance.knownOptimum;
+        this.dataFile = instance.dataFile;
+        initParams();
+    }
+    
     private void init(String name, int m, int n) {
         this.name = name;
         this.m = m;
         this.n = n;
         this.nbVehicles = new int[m];
         this.cost = new int[m + n][m + n];
+        initParams();
+    }
+    
+    private void initParams() {
         setPoolSolutions(Config.getPoolSolutions());
         setOutputEnabled(Config.isOutputEnabled());
-        setTimeLimit(Config.getTimeLimit());
-
+        setTimeLimit(Config.getTimeLimit());        
     }
 
     /**
@@ -143,7 +179,7 @@ public abstract class Model {
         }
         return total;
     }
-
+    
     /**
      *
      * @return the cost matrix.

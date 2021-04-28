@@ -8,6 +8,7 @@ import gurobi.GRBException;
 import gurobi.GRBLinExpr;
 import gurobi.GRBVar;
 import java.io.IOException;
+import ro.uaic.info.mdvsp.Instance;
 import ro.uaic.info.mdvsp.Model;
 import ro.uaic.info.mdvsp.Solution;
 
@@ -28,6 +29,10 @@ public class Model3D extends AbstractModel {
         super(other);
     }
 
+    public Model3D(Instance instance) {
+        super(instance);
+    }
+    
     @Override
     protected void createVariables() throws GRBException {
         // Create variables

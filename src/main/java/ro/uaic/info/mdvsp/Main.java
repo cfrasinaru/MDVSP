@@ -109,7 +109,10 @@ public class Main {
             if (pb == null) {
                 return;
             }
-            pb.setKnownOptimum(BEST.get(name));
+            Integer opt = BEST.get(name);
+            if (opt != null) {
+                pb.setKnownOptimum(opt);
+            }
 
             Solution sol = pb.solve();
             if (sol != null && true) {
@@ -163,7 +166,7 @@ public class Main {
         solWriter.flush();
 
         //System.out.println("Bad tours: " + sol.getBadTours().size() + "/" + sol.getTours().size());
-        //System.out.println(sol.toursToStringDetailed());
+        System.out.println(sol.toursToStringDetailed());
         //sol.getBadTours().stream().filter(t -> t.size() <= 5).forEach(System.out::println);        
     }
 
@@ -172,8 +175,11 @@ public class Main {
         if (sol == null) {
             return;
         }
-        int opt = BEST.get(pb.getName());
         int val = sol.totalCost();
+        Integer opt = BEST.get(pb.getName());
+        if (opt == null) {
+            opt = val;
+        }
         double pOpt = ((double) val - opt) / opt;
 
         //name BEST value percent runningTime(ms) dateTime

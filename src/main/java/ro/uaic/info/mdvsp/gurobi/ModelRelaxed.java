@@ -5,6 +5,7 @@ import gurobi.GRBException;
 import gurobi.GRBLinExpr;
 import java.io.IOException;
 import ro.uaic.info.mdvsp.Config;
+import ro.uaic.info.mdvsp.Instance;
 import ro.uaic.info.mdvsp.Model;
 
 public class ModelRelaxed extends AbstractModel2D {
@@ -19,6 +20,10 @@ public class ModelRelaxed extends AbstractModel2D {
         super(other);
     }
 
+    public ModelRelaxed(Instance instance) {
+        super(instance);
+    }
+    
     @Override
     protected void createConstraints() throws GRBException {
         //Constraints: in each trip enters one vehicle, exits one vehicle
