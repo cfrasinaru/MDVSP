@@ -251,7 +251,7 @@ public class Solution {
             if (detailed) {
                 sb.append(" --(").append(cost[t0][t1]).append(";").append(position(t1, t0)).append(")--> ").append(t1);
             } else {
-                sb.append("\t").append(t1);
+                sb.append(" --> ").append(t1);
             }
         }
         //sb.append(" [").append(id).append("]");

@@ -291,7 +291,7 @@ public abstract class Model {
         } catch (Exception ex) {
             System.err.println(ex);
         }
-        runningTime = System.currentTimeMillis() - startTime;
+        runningTime = System.currentTimeMillis() - startTime;        
         return getSolution();
     }
 

@@ -86,20 +86,24 @@ public abstract class AbstractModel extends Model {
         model.optimize();
 
         // Get the solution
-        if (outputEnabled) {
-            System.out.println("Objective Value: " + model.get(GRB.DoubleAttr.ObjVal));
-        }
-
-        if (poolSolutions == 1) {
-            extractSolution();
-        } else {
-            int ns = model.get(GRB.IntAttr.SolCount);
+        int status = model.get(GRB.IntAttr.Status);
+        if (status == GRB.OPTIMAL) {
             if (outputEnabled) {
-                System.out.println("Solutions found: " + ns);
+                System.out.println("Objective Value: " + model.get(GRB.DoubleAttr.ObjVal));
             }
-            extractSolutions();
+            if (poolSolutions == 1) {
+                extractSolution();
+            } else {
+                int ns = model.get(GRB.IntAttr.SolCount);
+                if (outputEnabled) {
+                    System.out.println("Solutions found: " + ns);
+                }
+                extractSolutions();
+            }
+        } else {
+            System.out.println("The model is not feasible");
+            solutions.clear();
         }
-
         dispose();
     }
 

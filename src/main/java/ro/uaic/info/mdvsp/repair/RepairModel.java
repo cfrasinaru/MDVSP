@@ -29,14 +29,16 @@ public class RepairModel extends Model {
         Solution sol1 = new BipartiteMatchingRepair(other, 1).getSolution();
         Solution sol2 = new BipartiteMatchingRepair(other, 2).getSolution();
 
-        Solution sol = sol1.totalCost() < sol2.totalCost() ? sol1 : sol2;
-        solutions.add(sol);
-        
+        if (sol1 != null && sol2 != null) {
+            Solution sol = sol1.totalCost() < sol2.totalCost() ? sol1 : sol2;
+            solutions.add(sol);
+        }
+
         /*
         Solution rep1 = new BipartiteMatchingRepair(this, 1).repair(sol);
         Solution rep2 = new BipartiteMatchingRepair(this, 1).repair(sol);        
         solutions.add(rep1.totalCost() < rep2.totalCost() ? rep1 : rep2);
-        */
+         */
     }
 
 }
