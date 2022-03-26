@@ -16,6 +16,7 @@
  */
 package ro.uaic.info.mdvsp.rad;
 
+import java.time.Duration;
 import java.time.LocalTime;
 
 /**
@@ -29,6 +30,7 @@ public class Trip {
     private int startLoc;
     private LocalTime endTime;
     private int endLoc;
+    private int index;
 
     public int getRoute() {
         return route;
@@ -70,9 +72,21 @@ public class Trip {
         this.endLoc = endLoc;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public int getDuration() {
+        return (int) Duration.between(startTime, endTime).toMinutes();
+    }
+
     @Override
     public String toString() {
-        return route + ": " + startLoc + " [" + startTime + "] -> " + endLoc + " [" + endTime + "]";
+        return "(" + route + "," + startTime + "," + startLoc + "," + endTime + "," + endLoc + ")";
     }
 
 }

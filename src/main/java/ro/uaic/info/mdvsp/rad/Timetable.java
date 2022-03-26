@@ -22,12 +22,13 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.stream.Collectors;
+import org.jgrapht.graph.DirectedAcyclicGraph;
 import ro.uaic.info.mdvsp.Instance;
 import ro.uaic.info.mdvsp.Model;
 import ro.uaic.info.mdvsp.Solution;
@@ -41,26 +42,25 @@ import ro.uaic.info.mdvsp.repair.RepairModel;
  */
 public class Timetable {
 
-    private List<Trip> trips;
-    private List<Movement> movements;
-    private List<PullOut> pullOuts;
-    private List<PullIn> pullIns;
-    private Set<Integer> routes;
-    private Set<Integer> locations;
+    private final List<Integer> depots = new ArrayList<>();
+    private final List<Trip> trips = new ArrayList<>();
+    private final List<Movement> movements = new ArrayList<>();
+    private final List<PullOut> pullOuts = new ArrayList<>();
+    private final List<PullIn> pullIns = new ArrayList<>();
+    private final Set<Integer> routes = new HashSet<>();
+    private final Set<Integer> locations = new HashSet<>();
 
     private final String directory;
     //
-    private List<Integer> locIndex;
-    private List<Integer> depotIndex = new ArrayList<>();
+    private final Map<Integer, Integer> depotMap = new HashMap<>();
+    private final Map<Trip, Integer> tripMap = new HashMap<>();
+    private int[][] cost;
 
     public Timetable(String directory) {
         this.directory = directory;
     }
 
     public void loadTrips(String filename) throws IOException {
-        trips = new ArrayList<>();
-        routes = new HashSet<>();
-        locations = new HashSet<>();
         List<String> lines = Files.readAllLines(Paths.get(directory + filename));
         for (String line : lines) {
             line = line.trim();
@@ -82,7 +82,6 @@ public class Timetable {
     }
 
     public void loadMovements(String filename) throws IOException {
-        movements = new ArrayList<>();
         List<String> lines = Files.readAllLines(Paths.get(directory + filename));
         for (String line : lines) {
             line = line.trim();
@@ -99,7 +98,6 @@ public class Timetable {
     }
 
     public void loadPullOuts(String filename) throws IOException {
-        pullOuts = new ArrayList<>();
         List<String> lines = Files.readAllLines(Paths.get(directory + filename));
         for (String line : lines) {
             line = line.trim();
@@ -112,11 +110,13 @@ public class Timetable {
             p.setStartLoc(Integer.parseInt(tokens.get(1)));
             p.setDuration(Integer.parseInt(tokens.get(2)));
             pullOuts.add(p);
+            if (!depots.contains(p.getDepot())) {
+                depots.add(p.getDepot());
+            }
         }
     }
 
     public void loadPullIns(String filename) throws IOException {
-        pullIns = new ArrayList<>();
         List<String> lines = Files.readAllLines(Paths.get(directory + filename));
         for (String line : lines) {
             line = line.trim();
@@ -129,126 +129,118 @@ public class Timetable {
             p.setDepot(Integer.parseInt(tokens.get(1)));
             p.setDuration(Integer.parseInt(tokens.get(2)));
             pullIns.add(p);
+            if (!depots.contains(p.getDepot())) {
+                depots.add(p.getDepot());
+            }
         }
     }
 
     public void solve() throws IOException, InvalidDataException {
         StringBuilder errors = new StringBuilder();
-        //find out locations
-        locIndex = new ArrayList<>();
-        int loc = 0;
-        Map<Integer, Integer> locMap = new TreeMap<>();
-        for (Trip t : trips) {
-            if (t.getStartTime().isAfter(t.getEndTime())) {
-                errors.append("Invalid trip times: ").append(t).append("\n");
-            }
-            if (!locMap.containsKey(t.getStartLoc())) {
-                locIndex.add(t.getStartLoc());
-                locMap.put(t.getStartLoc(), loc);
-                loc++;
-            }
-            if (!locMap.containsKey(t.getEndLoc())) {
-                locIndex.add(t.getEndLoc());
-                locMap.put(t.getEndLoc(), loc);
-                loc++;
-            }
+        int m = depots.size();
+        int n = trips.size();
+
+        //index depots
+        for (int i = 0; i < m; i++) {
+            depotMap.put(depots.get(i), i);
         }
 
-        //find out depots
-        int dep = 0;
-        depotIndex = new ArrayList<>();
-        Map<Integer, Integer> depotMap = new TreeMap<>();
-        for (PullOut p : pullOuts) {
-            if (!locMap.containsKey(p.getStartLoc())) {
-                errors.append("\n").append("Invalid pull-out start location: ").append(p.getStartLoc());
+        //check and index trips
+        for (int i = 0; i < n; i++) {
+            Trip t = trips.get(i);
+            if (t.getStartTime().isAfter(t.getEndTime())) {
+                errors.append("\n").append("Invalid trip times: ").append(t);
             }
-            if (!depotMap.containsKey(p.getDepot())) {
-                depotMap.put(p.getDepot(), dep);
-                depotIndex.add(p.getDepot());
-                dep++;
+            if (t.getStartLoc() == t.getEndLoc()) {
+                errors.append("\n").append("Dubious trip: ").append(t);
             }
-        }
-        for (PullIn p : pullIns) {
-            if (!locMap.containsKey(p.getEndLoc())) {
-                errors.append("\n").append("Invalid pull-in end location: ").append(p.getEndLoc());
-                continue;
-            }
-            if (!depotMap.containsKey(p.getDepot())) {
-                depotMap.put(p.getDepot(), dep);
-                depotIndex.add(p.getDepot());
-                dep++;
-            }
+            tripMap.put(t, i + m);
         }
 
         //check movements
         for (Movement move : movements) {
-            if (!locMap.containsKey(move.getStartLoc())) {
+            if (!locations.contains(move.getStartLoc())) {
                 errors.append("\n").append("Invalid movement start location: ").append(move.getEndLoc());
             }
-            if (!locMap.containsKey(move.getEndLoc())) {
+            if (!locations.contains(move.getEndLoc())) {
                 errors.append("\n").append("Invalid movement end location: ").append(move.getEndLoc());
             }
         }
+
         if (errors.length() > 0) {
             //throw new InvalidDataException(errors.toString());
-            System.out.println(errors);
+            //System.out.println(errors);
         }
 
-        System.out.println("Depots: " + dep);
-        System.out.println("Locations: " + loc);
-        System.out.println("Trips: " + trips.size());
+        System.out.println("Depots: " + m);
+        System.out.println("Trips: " + n);
+        System.out.println("Locations: " + locations.size());
         System.out.println("Routes: " + routes.size());
+        /*
         for (int l : locations) {
             System.out.println("Location " + l);
             System.out.println("\tOut:" + pullOuts.stream().filter(p -> p.getStartLoc() == l).collect(Collectors.toList()));
             System.out.println("\tIn:" + pullIns.stream().filter(p -> p.getEndLoc() == l).collect(Collectors.toList()));
-        }
+        }*/
 
-        int m = dep;
-        int n = trips.size();
         int[] nbVehicles = new int[m];
         for (int i = 0; i < m; i++) {
             nbVehicles[i] = n;
         }
-        int[][] cost = new int[n + m][n + m];
+        cost = new int[n + m][n + m];
         for (int i = 0; i < m + n; i++) {
             for (int j = 0; j < m + n; j++) {
                 cost[i][j] = -1;
+                if ((i < m && j >= m) || (i >= m && j < m)) {
+                    cost[i][j] = 9999;
+                }
             }
         }
 
         //pull out costs
-        for (int i = 0; i < m; i++) {
-            int depot = depotIndex.get(i);
-            for (int j = m; j < m + n; j++) {
-                Trip trip = trips.get(j - m);
-                PullOut po = pullOuts.stream()
-                        .filter(p -> p.getDepot() == depot && p.getStartLoc() == trip.getStartLoc())
-                        .findAny().orElse(null);
-                cost[i][j] = (po == null ? -1 : 5000 + po.getDuration());
+        for (PullOut po : pullOuts) {
+            for (Trip trip : trips) {
+                if (po.getStartLoc() == trip.getStartLoc()) {
+                    cost[depotMap.get(po.getDepot())][tripMap.get(trip)] = po.getDuration();
+                }
             }
         }
+        //pull out: trip-uri care contin depot
+        for (int depot : depots) {
+            for (Trip t : trips) {
+                if (t.getStartLoc() == depot) {
+                    cost[depotMap.get(depot)][tripMap.get(t)] = 0; //t.getDuration();
+                }
+            }
+        }
+
         //pull in costs
-        for (int j = m; j < m + n; j++) {
-            Trip trip = trips.get(j - m);
-            for (int i = 0; i < m; i++) {
-                int depot = depotIndex.get(i);
-                PullIn pi = pullIns.stream()
-                        .filter(p -> p.getEndLoc() == trip.getEndLoc() && p.getDepot() == depot)
-                        .findAny().orElse(null);
-                cost[j][i] = (pi == null ? -1 : 5000 + pi.getDuration());
+        for (PullIn pi : pullIns) {
+            for (Trip trip : trips) {
+                if (pi.getEndLoc() == trip.getEndLoc()) {
+                    cost[tripMap.get(trip)][depotMap.get(pi.getDepot())] = pi.getDuration();
+                }
             }
         }
+        //pull-in: trip-uri care contin depot
+        for (int depot : depots) {
+            for (Trip t : trips) {
+                if (t.getEndLoc() == depot) {
+                    cost[tripMap.get(t)][depotMap.get(depot)] = 0; //t.getDuration();
+                }
+            }
+        }
+
         //trip-trip costs
         for (int i = m; i < m + n; i++) {
             Trip t0 = trips.get(i - m);
             for (int j = m; j < m + n; j++) {
                 Trip t1 = trips.get(j - m);
                 //arc de la t0 la t1 daca: t1 este dupa t0, sunt in pereche sau in movements
-                int duration = (int) Duration.between(t0.getEndTime(), t1.getStartTime()).toMinutes();
-                if (duration < 0) {
+                if (t0.getEndTime().isAfter(t1.getStartTime())) {
                     continue;
                 }
+                int duration = (int) Duration.between(t0.getEndTime(), t1.getStartTime()).toMinutes();
                 if (t0.getEndLoc() == t1.getStartLoc()) {
                     cost[i][j] = duration;
                     continue;
@@ -257,33 +249,64 @@ public class Timetable {
                         .filter(mv -> mv.getStartLoc() == t0.getEndLoc() && mv.getEndLoc() == t1.getStartLoc())
                         .findAny().orElse(null);
                 if (move != null) {
-                    cost[i][j] = move.getDuration();
-                    continue;
+                    if (!t0.getEndTime().plusMinutes(move.getDuration()).isAfter(t1.getStartTime())) {
+                        cost[i][j] = move.getDuration();
+                    }
                 }
-                //cost[i][j] = 1000;
             }
         }
-        //movements
-        /*
-        for(Movement move : movements) {
-            Trip t0 = trips.get(i - m);
-            Trip t1 = trips.get(i - m);
-        }*/
 
         //
         Instance instance = new Instance("demo", m, n, nbVehicles, cost);
         instance.write("d:/java/MDVSP/demo.inp");
 
         Model model = new RepairModel(new ModelRelaxed(instance));
+        var graph = model.getGraph();
+        for (int v : graph.vertexSet()) {
+            if (v < m) {
+                continue;
+            }
+            if (graph.inDegreeOf(v) == 0) {
+                System.out.println("Indegree 0: " + trips.get(v - m));
+            }
+            if (graph.outDegreeOf(v) == 0) {
+                System.out.println("Outdegree 0: " + trips.get(v - m));
+            }
+        }
+        //DirectedAcyclicGraph dag = model.createReducedGraph();
+
         model.setOutputEnabled(true);
         try {
             Solution sol = model.solve();
             if (sol != null) {
                 //System.out.println(sol.toursToStringSimple());
-                System.out.println("Tours: " + sol.getTours().size());
-                for (Tour t : sol.getTours()) {
+                System.out.println("Model is feasible.");
+                List<Tour> tours = sol.getTours();
+                int ts = sol.getTours().size();
+                System.out.println("Tours: " + ts);
+                for (Tour t : tours) {
                     printTour(t);
                 }
+
+                //                
+                /*
+                for (int i = 0; i < ts - 1; i++) {
+                    Tour tour0 = tours.get(i);
+                    int t0 = tour0.get(tour0.size() - 2);//last trip
+                    Trip trip0 = trips.get(t0 - m);
+                    LocalTime end = trip0.getEndTime();
+                    for (int j = i + 1; j < ts; j++) {
+                        Tour tour1 = tours.get(j);
+                        int t1 = tour1.get(1);//first trip
+                        Trip trip1 = trips.get(t1 - m);
+                        LocalTime start = trip1.getStartTime();
+                        if (end.isBefore(start)) {
+                            System.out.println("Merge:");
+                            printTour(tour0);
+                            printTour(tour1);
+                        }
+                    }
+                }*/
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -292,21 +315,28 @@ public class Timetable {
 
     private void printTour(Tour tour) {
         StringBuilder sb = new StringBuilder();
-        int m = depotIndex.size();
+        int m = depots.size();
         int k = tour.size();
-        sb.append("Depot_").append(depotIndex.get(tour.get(0)));
+        int t0, t1;
+        sb.append("Depot_").append(depots.get(tour.get(0)));
         for (int i = 1; i < k - 1; i++) {
-            int t0 = tour.get(i - 1);
-            int t1 = tour.get(i);
+            t0 = tour.get(i - 1);
+            t1 = tour.get(i);
             Trip trip0 = i > 1 ? trips.get(t0 - m) : null;
             Trip trip1 = trips.get(t1 - m);
-            if (trip0 == null || trip0.getEndLoc() == trip1.getStartLoc()) {
-                sb.append(" --> (").append(trip1).append(")");
+            if (trip0 == null) {
+                sb.append(" --{").append(cost[t0][t1]).append(" min}--> ").append(trip1);
             } else {
-                sb.append(" -***-> (").append(trip1).append(")");
+                if (trip0.getEndLoc() == trip1.getStartLoc()) {
+                    sb.append(" --{").append(cost[t0][t1]).append(" min}--> ").append(trip1);
+                } else {
+                    sb.append(" --**{").append(cost[t0][t1]).append(" min}**--> ").append(trip1);
+                }
             }
         }
-        sb.append(" --> Depot_").append(depotIndex.get(tour.get(k - 1)));
+        t0 = tour.get(k - 2);
+        t1 = tour.get(k - 1);
+        sb.append(" --{").append(cost[t0][t1]).append(" min}--> Depot_").append(depots.get(t1));
         System.out.println(sb.toString());
 
     }
@@ -314,7 +344,7 @@ public class Timetable {
     public static void main(String args[]) {
         Timetable tt = new Timetable("d:/java/MDVSP/input/");
         try {
-            tt.loadTrips("TimeTable-simple.csv");
+            tt.loadTrips("TimeTable.csv");
             tt.loadMovements("Movements.csv");
             tt.loadPullOuts("PullOuts.csv");
             tt.loadPullIns("PullIns.csv");

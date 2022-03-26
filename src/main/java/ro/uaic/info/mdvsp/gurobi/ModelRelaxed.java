@@ -4,6 +4,7 @@ import gurobi.GRB;
 import gurobi.GRBException;
 import gurobi.GRBLinExpr;
 import java.io.IOException;
+import java.util.Arrays;
 import ro.uaic.info.mdvsp.Config;
 import ro.uaic.info.mdvsp.Instance;
 import ro.uaic.info.mdvsp.Model;
@@ -26,6 +27,7 @@ public class ModelRelaxed extends AbstractModel2D {
     
     @Override
     protected void createConstraints() throws GRBException {
+        
         //Constraints: in each trip enters one vehicle, exits one vehicle
         for (int i = m; i < n + m; i++) {
             GRBLinExpr rowSum = new GRBLinExpr();
@@ -57,7 +59,7 @@ public class ModelRelaxed extends AbstractModel2D {
             }
             model.addConstr(rowSum, GRB.LESS_EQUAL, nbVehicles[i], "depotRowSum" + i);
             model.addConstr(colSum, GRB.EQUAL, rowSum, "depotColSum" + i);
-        }
+        }        
     }
 
     private void computeNearestDepots() {
@@ -84,7 +86,8 @@ public class ModelRelaxed extends AbstractModel2D {
             for (int j = 0; j < n + m; j++) {
                 if (x[i][j] != null) {
                     if (i >= m && j < m) {
-                        expr.addTerm(cost[i][j] + (cost[i][j] - cost[i][y[i - m]]) * factor, x[i][j]);
+                        expr.addTerm(cost[i][j], x[i][j]);
+                        //expr.addTerm(cost[i][j] + (cost[i][j] - cost[i][y[i - m]]) * factor, x[i][j]);
                         //expr.addTerm(cost[i][j] + Math.abs(j - y[i - m]) * factor, x[i][j]);
                     } else {
                         expr.addTerm(cost[i][j], x[i][j]);

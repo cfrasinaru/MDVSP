@@ -11,11 +11,14 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.jgrapht.Graph;
 import org.jgrapht.Graphs;
+import org.jgrapht.alg.connectivity.BiconnectivityInspector;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.DirectedAcyclicGraph;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
+import org.jgrapht.graph.SimpleGraph;
 
 /**
  *
@@ -24,7 +27,7 @@ import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 public abstract class Model {
 
     protected String dataFile;
-    
+
     protected String name;
     protected int m; //depots
     protected int n; //trips
@@ -63,7 +66,7 @@ public abstract class Model {
         }
         read(this.dataFile);
     }
-    
+
     /**
      *
      * @param name
@@ -89,14 +92,14 @@ public abstract class Model {
     }
 
     /**
-     * 
+     *
      * @param name
      * @param m
      * @param n
      * @param nbVehicles
-     * @param cost 
+     * @param cost
      */
-    public Model(String name, int m, int n, int[] nbVehicles, int[][]cost) {
+    public Model(String name, int m, int n, int[] nbVehicles, int[][] cost) {
         this.name = name;
         this.n = n;
         this.m = m;
@@ -104,10 +107,10 @@ public abstract class Model {
         this.cost = cost;
         initParams();
     }
-    
+
     /**
-     * 
-     * @param instance 
+     *
+     * @param instance
      */
     public Model(Instance instance) {
         this.name = instance.name;
@@ -119,7 +122,7 @@ public abstract class Model {
         this.dataFile = instance.dataFile;
         initParams();
     }
-    
+
     private void init(String name, int m, int n) {
         this.name = name;
         this.m = m;
@@ -128,11 +131,11 @@ public abstract class Model {
         this.cost = new int[m + n][m + n];
         initParams();
     }
-    
+
     private void initParams() {
         setPoolSolutions(Config.getPoolSolutions());
         setOutputEnabled(Config.isOutputEnabled());
-        setTimeLimit(Config.getTimeLimit());        
+        setTimeLimit(Config.getTimeLimit());
     }
 
     /**
@@ -179,7 +182,7 @@ public abstract class Model {
         }
         return total;
     }
-    
+
     /**
      *
      * @return the cost matrix.
@@ -291,7 +294,7 @@ public abstract class Model {
         } catch (Exception ex) {
             System.err.println(ex);
         }
-        runningTime = System.currentTimeMillis() - startTime;        
+        runningTime = System.currentTimeMillis() - startTime;
         return getSolution();
     }
 
@@ -348,7 +351,7 @@ public abstract class Model {
      *
      * @return
      */
-    protected DirectedAcyclicGraph createReducedGraph() {
+    public  DirectedAcyclicGraph createReducedGraph() {
         DirectedAcyclicGraph g = new DirectedAcyclicGraph(DefaultEdge.class);
         for (int i = m; i < n + m; i++) {
             g.addVertex(i);
@@ -367,7 +370,6 @@ public abstract class Model {
      *
      */
     protected void createGraph() {
-        //System.out.print("Creating graph...");
         graph = new SimpleDirectedWeightedGraph(DefaultWeightedEdge.class);
         for (int i = 0; i < n + m; i++) {
             graph.addVertex(i);
@@ -380,33 +382,6 @@ public abstract class Model {
                 }
             }
         }
-        //System.out.println("Done.");
-        /*
-        for (int i = 0; i < n + m; i++) {
-            List<Integer> nb = new ArrayList<>();
-            for (var j : Graphs.neighborSetOf(graph, i)) {
-                if (cost[i][j] >= 0) {
-                    nb.add(j);
-                }
-            }
-            final int x = i;
-            Collections.sort(nb, (j0, j1) -> cost[x][j0] - cost[x][j1]);
-            for (int q = 0; q < nb.size(); q++) {
-                int j = nb.get(q);
-            }
-        }*/
-
- /*
-        JGraphXAdapter<Integer, DefaultEdge> graphAdapter = new JGraphXAdapter<>(graph);
-        mxIGraphLayout layout = new mxCircleLayout(graphAdapter);
-        layout.execute(graphAdapter.getDefaultParent());
-        BufferedImage image = mxCellRenderer.createBufferedImage(graphAdapter, null, 2, Color.WHITE, true, null);
-        File imgFile = new File("d:/java/MDVSP/graph.png");
-        try {
-            ImageIO.write(image, "PNG", imgFile);
-        } catch (IOException ex) {
-            Logger.getLogger(Problem.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
     }
 
     public SimpleDirectedWeightedGraph<Integer, DefaultWeightedEdge> getGraph() {
@@ -414,6 +389,21 @@ public abstract class Model {
             createGraph();
         }
         return graph;
+    }
+
+    protected SimpleGraph<Integer, DefaultEdge> createSupportGraph() {
+        SimpleGraph<Integer, DefaultEdge> support = new SimpleGraph(DefaultEdge.class);
+        for (int i = 0; i < n + m; i++) {
+            support.addVertex(i);
+        }
+        for (int i = 0; i < n + m; i++) {
+            for (int j = 0; j < n + m; j++) {
+                if (cost[i][j] >= 0) {
+                    DefaultEdge e = support.addEdge(i, j);
+                }
+            }
+        }
+        return support;
     }
 
     private List<Tour> findAllPaths() {
@@ -525,6 +515,23 @@ public abstract class Model {
         int c = 0;
         c = list.stream().map(t -> computeCost(t)).reduce(c, Integer::sum);
         return c;
+    }
+
+    public void inspectConnectivity() {
+        Graph<Integer, DefaultEdge> support = createSupportGraph();
+        BiconnectivityInspector<Integer, DefaultEdge> ci = new BiconnectivityInspector<Integer, DefaultEdge>(support);
+        boolean connected = ci.isConnected();
+        System.out.println("Connected: " + connected);
+        if (!connected) {
+            System.out.print(ci.getConnectedComponents().size() + " connected components: ");
+            for (Graph<Integer, DefaultEdge> g : ci.getConnectedComponents()) {
+                System.out.print(g.vertexSet().size() + " ");
+                if (g.vertexSet().size() == 1) {
+                    System.out.println(g.vertexSet());
+                }
+            }
+            System.out.println();
+        }
     }
 
     @Override

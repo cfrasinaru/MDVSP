@@ -112,7 +112,7 @@ public abstract class AbstractModel extends Model {
         start();
         createVariables();
         createConstraints();
-        createObjective();
+        createObjective();        
         optimize();
     }
 
