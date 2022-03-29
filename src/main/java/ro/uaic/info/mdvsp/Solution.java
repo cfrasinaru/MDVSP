@@ -358,4 +358,9 @@ public class Solution {
         return sum;
     }
 
+    public Model getModel() {
+        return model;
+    }
+
+    
 }

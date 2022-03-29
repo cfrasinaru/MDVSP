@@ -27,8 +27,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
-import org.jgrapht.graph.DirectedAcyclicGraph;
+import java.util.stream.Collectors;
 import ro.uaic.info.mdvsp.Instance;
 import ro.uaic.info.mdvsp.Model;
 import ro.uaic.info.mdvsp.Solution;
@@ -42,19 +41,20 @@ import ro.uaic.info.mdvsp.repair.RepairModel;
  */
 public class Timetable {
 
-    private final List<Integer> depots = new ArrayList<>();
-    private final List<Trip> trips = new ArrayList<>();
-    private final List<Movement> movements = new ArrayList<>();
-    private final List<PullOut> pullOuts = new ArrayList<>();
-    private final List<PullIn> pullIns = new ArrayList<>();
-    private final Set<Integer> routes = new HashSet<>();
-    private final Set<Integer> locations = new HashSet<>();
+    static final int DEPOT_TIME = 0;
+    final List<Integer> depots = new ArrayList<>();
+    final List<Trip> trips = new ArrayList<>();
+    final List<Movement> movements = new ArrayList<>();
+    final List<PullOut> pullOuts = new ArrayList<>();
+    final List<PullIn> pullIns = new ArrayList<>();
+    final Set<Integer> routes = new HashSet<>();
+    final Set<Integer> locations = new HashSet<>();
 
-    private final String directory;
+    final String directory;
     //
-    private final Map<Integer, Integer> depotMap = new HashMap<>();
-    private final Map<Trip, Integer> tripMap = new HashMap<>();
-    private int[][] cost;
+    final Map<Integer, Integer> depotMap = new HashMap<>();
+    final Map<Trip, Integer> tripMap = new HashMap<>();
+    int[][] cost;
 
     public Timetable(String directory) {
         this.directory = directory;
@@ -192,7 +192,7 @@ public class Timetable {
             for (int j = 0; j < m + n; j++) {
                 cost[i][j] = -1;
                 if ((i < m && j >= m) || (i >= m && j < m)) {
-                    cost[i][j] = 9999;
+                    //cost[i][j] = 9999;
                 }
             }
         }
@@ -276,69 +276,57 @@ public class Timetable {
         //DirectedAcyclicGraph dag = model.createReducedGraph();
 
         model.setOutputEnabled(true);
-        try {
-            Solution sol = model.solve();
-            if (sol != null) {
-                //System.out.println(sol.toursToStringSimple());
-                System.out.println("Model is feasible.");
-                List<Tour> tours = sol.getTours();
-                int ts = sol.getTours().size();
-                System.out.println("Tours: " + ts);
-                for (Tour t : tours) {
-                    printTour(t);
-                }
-
-                //                
-                /*
-                for (int i = 0; i < ts - 1; i++) {
-                    Tour tour0 = tours.get(i);
-                    int t0 = tour0.get(tour0.size() - 2);//last trip
-                    Trip trip0 = trips.get(t0 - m);
-                    LocalTime end = trip0.getEndTime();
-                    for (int j = i + 1; j < ts; j++) {
-                        Tour tour1 = tours.get(j);
-                        int t1 = tour1.get(1);//first trip
-                        Trip trip1 = trips.get(t1 - m);
-                        LocalTime start = trip1.getStartTime();
-                        if (end.isBefore(start)) {
-                            System.out.println("Merge:");
-                            printTour(tour0);
-                            printTour(tour1);
-                        }
-                    }
-                }*/
+        Solution sol = model.solve();
+        if (sol != null) {
+            System.out.println("Model is feasible. Optimum: " + sol.totalCost() + " min");
+            System.out.println("Initial tours: " + sol.getTours().size());
+            List<SimpleTour> tours = new ArrayList<>();
+            for (Tour t : sol.getTours()) {
+                var st = new SimpleTour(this, t);
+                tours.add(st);
+                //System.out.println(st);
+                //System.out.println(st.startTime + "-" + st.endTime);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            var schedule = createSchedule(tours);
+            System.out.println("Vehicles: " + schedule.size());
+            for(MultiTour mt : schedule) {
+                System.out.println(mt);
+            }
+        } 
     }
 
-    private void printTour(Tour tour) {
-        StringBuilder sb = new StringBuilder();
-        int m = depots.size();
-        int k = tour.size();
-        int t0, t1;
-        sb.append("Depot_").append(depots.get(tour.get(0)));
-        for (int i = 1; i < k - 1; i++) {
-            t0 = tour.get(i - 1);
-            t1 = tour.get(i);
-            Trip trip0 = i > 1 ? trips.get(t0 - m) : null;
-            Trip trip1 = trips.get(t1 - m);
-            if (trip0 == null) {
-                sb.append(" --{").append(cost[t0][t1]).append(" min}--> ").append(trip1);
+    private List<MultiTour> createSchedule(List<SimpleTour> tours) {
+        List<MultiTour> schedule = new ArrayList<>();
+        List<SimpleTour> candidates = tours.stream().sorted().collect(Collectors.toList());
+        
+        int vehicle = 1;
+        MultiTour multi = new MultiTour(vehicle);
+        LocalTime minStartTime = null;
+        while (!candidates.isEmpty()) {
+            SimpleTour t = findTour(minStartTime, candidates);
+            if (t != null) {
+                multi.add(t);
+                candidates.remove(t);
+                minStartTime = t.getEndTime();
             } else {
-                if (trip0.getEndLoc() == trip1.getStartLoc()) {
-                    sb.append(" --{").append(cost[t0][t1]).append(" min}--> ").append(trip1);
-                } else {
-                    sb.append(" --**{").append(cost[t0][t1]).append(" min}**--> ").append(trip1);
-                }
+                schedule.add(multi);
+                multi = new MultiTour(++vehicle);
+                minStartTime = null;
             }
         }
-        t0 = tour.get(k - 2);
-        t1 = tour.get(k - 1);
-        sb.append(" --{").append(cost[t0][t1]).append(" min}--> Depot_").append(depots.get(t1));
-        System.out.println(sb.toString());
+        return schedule;
+    }
 
+    private SimpleTour findTour(LocalTime minStartTime, List<SimpleTour> candidates) {
+        if (minStartTime == null) {
+            return candidates.get(0);
+        }
+        for (SimpleTour t : candidates) {
+            if (t.getStartTime().isAfter(minStartTime.plusMinutes(DEPOT_TIME))) {
+                return t;
+            }
+        }
+        return null;
     }
 
     public static void main(String args[]) {
