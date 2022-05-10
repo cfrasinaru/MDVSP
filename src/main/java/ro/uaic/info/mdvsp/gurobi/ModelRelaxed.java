@@ -4,7 +4,6 @@ import gurobi.GRB;
 import gurobi.GRBException;
 import gurobi.GRBLinExpr;
 import java.io.IOException;
-import java.util.Arrays;
 import ro.uaic.info.mdvsp.Config;
 import ro.uaic.info.mdvsp.Instance;
 import ro.uaic.info.mdvsp.Model;

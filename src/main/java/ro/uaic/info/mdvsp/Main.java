@@ -16,6 +16,7 @@ import ro.uaic.info.mdvsp.bb.Model_b_heuristic;
 import ro.uaic.info.mdvsp.bb2.Model_d_heuristic;
 import ro.uaic.info.mdvsp.greedy.GreedyModel1;
 import ro.uaic.info.mdvsp.gurobi.*;
+import ro.uaic.info.mdvsp.ort.ModelRelaxedOrt;
 
 /**
  *
@@ -131,7 +132,8 @@ public class Main {
     private Model getModel(String name) throws IOException {
         switch (Config.getAlgorithm()) {
             case "simple":
-                return new RepairModel(new ModelRelaxed(name));
+                //return new RepairModel(new ModelRelaxed(name));
+                return new RepairModel(new ModelRelaxedOrt(name));
             case "bad-tours":
                 return new RepairModel(new Model_b_heuristic(name));
             case "exact":

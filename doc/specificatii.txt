@@ -1,0 +1,62 @@
+Procesul de optimizare cuprinde doua faze consecutive in ordinea de mai jos: 
+
+1. Faza de optimizare a semicurselor (trips) prin gruparea acestora in semicurse inlantuite (blocks) care pornesc din garaje prin segmente neproductive de acces (pull in) 
+si se finalizeaza prin segmente neproductive de retragere (pull out), optimizare care sa reduca costurile de exploatare.
+
+2. Faza de alocare a semicurselor inlantuite (blocks) a unor vehicule reale din dotarea diferitelor garaje, realizand optimizarea costurilor de exploatare.
+
+In ambele faze ale optimizarii sa existe posibilitatea impunerii de catre utilizator a unor parametri/restrictii pentru rute, pentru vehicule si pentru soferi.
+
+Parametri/Restrictii flota vehicule
+-Numar de garaje
+-Numar vehicule pentru fiecare tip si alocarea lor pe garaje
+-Durata maxima de utilizare/zi
+-Lista vehicule indisponibile pe tipuri si intervale orare
+-Consum mediu carburant/minut/tip vehicul
+-Cost mediu inlocuire/minut/tip vehicul
+
+Parametri/Restrictii Rute
+-Tip de vehicul alocat fiecarei semicurse (trip)
+-Timpi medii pentru deplasarile pull-in/pull-out si interlining (acces/retragere si intre capete linii)
+-Timpi odihna (layover) la capete (terminals) de semicurse
+-Numar maxim de vehicule care pot stationa la capete (terminals)
+
+Parametri/Restrictii pentru soferi functie de tip vehicul eligibil
+-cost mediu/minut/sofer eligibil (unii soferi sunt eligibili doar pentru a conduce anumite tipuri de vehicule, datorita de ex dimensiunilor sau trainingului primit)
+
+Cele doua faze de optimizare ar trebui sa poata fi realizate pe rand cate una, sau impreuna.
+
+Ar trebui deasemeni sa poata fi calculat costul total la nivelul intregii flote rezultat in urma optimizarii, 
+care sa cuprinda pe langa costul realizarii sarcinilor neproductive (pull in, pull out, interlining) 
+si costul realizarii semicurselor (durata semicursa X (cost carburant+cost inlocuire+cost sofer)). 
+In plus ar trebui sa se poata calcula acest cost si separat pe fiecare ruta in parte.
+
+
+
+Serviciu REST, Front Controller
+	-optimizeRoutes
+	-validate, 
+	-assignVehicles
+	-assignDrivers, 
+	-assign(Vehicles+Drivers)	
+	
+Input - XML
+	instance date, name, nbDepots, nbVehicles
+	depots
+	vehicles
+	drivers
+	params: 
+	
+Output	- XML
+	optimizeRoutes: traseele, impreuna cu toate informatiile legate de costuri
+	assignVehicles: repartizarea vehiculelor pe trasee
+	assignDrivers: repartizarea soferilor pe vehicule
+	
+Durata maxima de utilizare: pot fi diferite de la un vehicul la altul?
+Care sunt tipurile de vehicule si ce importanta are?
+
+Restrictii vehicul
+	-doar pe anumite rute
+	-durata maxima de utilizare pe zi
+	-intervale orare disponibile
+	-disponibil sau nu

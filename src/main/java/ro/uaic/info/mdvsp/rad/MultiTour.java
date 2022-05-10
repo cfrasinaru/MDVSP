@@ -18,6 +18,7 @@ package ro.uaic.info.mdvsp.rad;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -31,31 +32,29 @@ public class MultiTour extends ArrayList<SimpleTour> {
 
     public MultiTour(int vehicle) {
         super();
-        this.vehicle = vehicle;        
+        this.vehicle = vehicle;
     }
 
-    
     @Override
     public boolean add(SimpleTour e) {
+        for (var t : this) {
+            if (t.intersects(e)) {
+                throw new IllegalArgumentException("Intersection in multitour:\n" + t + "\n" + e);
+            }
+        }
         if (!super.add(e)) {
             return false;
         }
-        if (endTime != null) {
-            if (e.getStartTime().isBefore(endTime)) {
-                throw new IllegalArgumentException("Invalid simple tour: " + e);
-            }
-        }
-        if (startTime == null) {
-            startTime = e.getStartTime();
-        }
-        endTime = e.getEndTime();
+        Collections.sort(this);
+        startTime = get(0).getStartTime();
+        endTime = get(size() - 1).getEndTime();
         return true;
     }
 
     public int getVehicle() {
         return vehicle;
     }
-    
+
     public LocalTime getStartTime() {
         return startTime;
     }

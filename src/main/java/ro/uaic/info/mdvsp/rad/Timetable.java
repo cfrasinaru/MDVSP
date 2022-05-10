@@ -32,7 +32,7 @@ import ro.uaic.info.mdvsp.Instance;
 import ro.uaic.info.mdvsp.Model;
 import ro.uaic.info.mdvsp.Solution;
 import ro.uaic.info.mdvsp.Tour;
-import ro.uaic.info.mdvsp.gurobi.ModelRelaxed;
+import ro.uaic.info.mdvsp.ort.ModelRelaxedOrt;
 import ro.uaic.info.mdvsp.repair.RepairModel;
 
 /**
@@ -54,7 +54,12 @@ public class Timetable {
     //
     final Map<Integer, Integer> depotMap = new HashMap<>();
     final Map<Trip, Integer> tripMap = new HashMap<>();
-    int[][] cost;
+    int[][] dur;
+    private int[][] cost;
+    static final int WEIGHT1 = 125; //combustibil+manopera
+    static final int WEIGHT2 = 50; //manopera
+    //
+    List<SimpleTour> tours;
 
     public Timetable(String directory) {
         this.directory = directory;
@@ -187,10 +192,12 @@ public class Timetable {
         for (int i = 0; i < m; i++) {
             nbVehicles[i] = n;
         }
+        dur = new int[n + m][n + m];
         cost = new int[n + m][n + m];
         for (int i = 0; i < m + n; i++) {
             for (int j = 0; j < m + n; j++) {
                 cost[i][j] = -1;
+                dur[i][j] = -1;
                 if ((i < m && j >= m) || (i >= m && j < m)) {
                     //cost[i][j] = 9999;
                 }
@@ -201,7 +208,10 @@ public class Timetable {
         for (PullOut po : pullOuts) {
             for (Trip trip : trips) {
                 if (po.getStartLoc() == trip.getStartLoc()) {
-                    cost[depotMap.get(po.getDepot())][tripMap.get(trip)] = po.getDuration();
+                    int i = depotMap.get(po.getDepot());
+                    int j = tripMap.get(trip);
+                    dur[i][j] = po.getDuration();
+                    cost[i][j] = dur[i][j] * WEIGHT1;
                 }
             }
         }
@@ -209,7 +219,9 @@ public class Timetable {
         for (int depot : depots) {
             for (Trip t : trips) {
                 if (t.getStartLoc() == depot) {
-                    cost[depotMap.get(depot)][tripMap.get(t)] = 0; //t.getDuration();
+                    int i = depotMap.get(depot);
+                    int j = tripMap.get(t);
+                    dur[i][j] = cost[i][j] = 0; //t.getDuration();
                 }
             }
         }
@@ -218,7 +230,10 @@ public class Timetable {
         for (PullIn pi : pullIns) {
             for (Trip trip : trips) {
                 if (pi.getEndLoc() == trip.getEndLoc()) {
-                    cost[tripMap.get(trip)][depotMap.get(pi.getDepot())] = pi.getDuration();
+                    int i = tripMap.get(trip);
+                    int j = depotMap.get(pi.getDepot());
+                    dur[i][j] = pi.getDuration();
+                    cost[i][j] = dur[i][j] * WEIGHT1;
                 }
             }
         }
@@ -226,7 +241,9 @@ public class Timetable {
         for (int depot : depots) {
             for (Trip t : trips) {
                 if (t.getEndLoc() == depot) {
-                    cost[tripMap.get(t)][depotMap.get(depot)] = 0; //t.getDuration();
+                    int i = tripMap.get(t);
+                    int j = depotMap.get(depot);
+                    dur[i][j] = cost[i][j] = 0; //t.getDuration();
                 }
             }
         }
@@ -242,7 +259,8 @@ public class Timetable {
                 }
                 int duration = (int) Duration.between(t0.getEndTime(), t1.getStartTime()).toMinutes();
                 if (t0.getEndLoc() == t1.getStartLoc()) {
-                    cost[i][j] = duration;
+                    dur[i][j] = duration;
+                    cost[i][j] = dur[i][j] * WEIGHT2;
                     continue;
                 }
                 Movement move = movements.stream()
@@ -250,7 +268,10 @@ public class Timetable {
                         .findAny().orElse(null);
                 if (move != null) {
                     if (!t0.getEndTime().plusMinutes(move.getDuration()).isAfter(t1.getStartTime())) {
-                        cost[i][j] = move.getDuration();
+                        int totalDur = (int) Duration.between(t0.getEndTime(), t1.getStartTime()).toMinutes();
+                        int moveDur = move.getDuration();
+                        dur[i][j] = moveDur;
+                        cost[i][j] = moveDur * WEIGHT1 + (totalDur - moveDur) * WEIGHT2;
                     }
                 }
             }
@@ -260,7 +281,8 @@ public class Timetable {
         Instance instance = new Instance("demo", m, n, nbVehicles, cost);
         instance.write("d:/java/MDVSP/demo.inp");
 
-        Model model = new RepairModel(new ModelRelaxed(instance));
+        //Model model = new RepairModel(new ModelRelaxed(instance));
+        Model model = new RepairModel(new ModelRelaxedOrt(instance));
         var graph = model.getGraph();
         for (int v : graph.vertexSet()) {
             if (v < m) {
@@ -278,29 +300,49 @@ public class Timetable {
         model.setOutputEnabled(true);
         Solution sol = model.solve();
         if (sol != null) {
-            System.out.println("Model is feasible. Optimum: " + sol.totalCost() + " min");
+            System.out.println("Model is feasible. Optimum: " + sol.totalCost() / 100.0 + " lei");
             System.out.println("Initial tours: " + sol.getTours().size());
-            List<SimpleTour> tours = new ArrayList<>();
+            this.tours = new ArrayList<>();
             for (Tour t : sol.getTours()) {
                 var st = new SimpleTour(this, t);
                 tours.add(st);
                 //System.out.println(st);
                 //System.out.println(st.startTime + "-" + st.endTime);
             }
-            var schedule = createSchedule(tours);
-            System.out.println("Vehicles: " + schedule.size());
-            for(MultiTour mt : schedule) {
-                System.out.println(mt);
+            //var schedule = createColoringSchedule();
+            var schedule = createGreedySchedule();
+            if (schedule != null) {
+                System.out.println("Vehicles: " + schedule.size());
+                for (MultiTour mt : schedule) {
+                    System.out.println(mt);
+                }
+            } else {
+                System.out.println("Nope.");
             }
-        } 
+        }
     }
 
-    private List<MultiTour> createSchedule(List<SimpleTour> tours) {
+    private List<MultiTour> createColoringSchedule() {
+        List<MultiTour> best = null;
+        for (int p = 85; p > 0; p--) {
+            System.out.println("Trying " + p);
+            var schedule = new ColoringProblem(this, p).solve();
+            if (schedule != null) {
+                best = schedule;
+            } else {
+                break;
+            }
+        }
+        return best;
+    }
+
+    private List<MultiTour> createGreedySchedule() {
         List<MultiTour> schedule = new ArrayList<>();
         List<SimpleTour> candidates = tours.stream().sorted().collect(Collectors.toList());
-        
+
         int vehicle = 1;
         MultiTour multi = new MultiTour(vehicle);
+        schedule.add(multi);
         LocalTime minStartTime = null;
         while (!candidates.isEmpty()) {
             SimpleTour t = findTour(minStartTime, candidates);
@@ -309,24 +351,38 @@ public class Timetable {
                 candidates.remove(t);
                 minStartTime = t.getEndTime();
             } else {
-                schedule.add(multi);
                 multi = new MultiTour(++vehicle);
+                schedule.add(multi);
                 minStartTime = null;
             }
         }
         return schedule;
     }
 
+    //candidates are sorted after startTime
     private SimpleTour findTour(LocalTime minStartTime, List<SimpleTour> candidates) {
         if (minStartTime == null) {
             return candidates.get(0);
         }
+        SimpleTour tour = tours.get(tours.size() - 1);
+        SimpleTour first = null, best = null;
         for (SimpleTour t : candidates) {
-            if (t.getStartTime().isAfter(minStartTime.plusMinutes(DEPOT_TIME))) {
-                return t;
+            if (t.getStartTime().isBefore(minStartTime.plusMinutes(DEPOT_TIME))) {
+                continue;
             }
+            if (first == null) {
+                first = t;
+                break;
+            }
+            /*
+            int dur = (int) Duration.between(minStartTime, t.getStartTime()).toMinutes();
+            if (dur <= 60 && t.getMainRoute() == tour.getMainRoute()) {
+                best = t;
+                System.out.println("best: " + t + " \nfor " + tour);
+                break;
+            }*/
         }
-        return null;
+        return best != null ? best : first;
     }
 
     public static void main(String args[]) {
