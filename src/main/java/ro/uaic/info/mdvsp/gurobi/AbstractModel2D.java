@@ -91,7 +91,6 @@ public abstract class AbstractModel2D extends AbstractModel {
             return sol;
         } catch (GRBException e) {
             System.err.println(e + "\n\t" + e.getErrorCode() + "\n\t" + e.getMessage());
-            e.printStackTrace();
             return null;
         }
     }

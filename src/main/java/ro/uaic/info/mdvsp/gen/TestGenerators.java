@@ -17,13 +17,12 @@
 package ro.uaic.info.mdvsp.gen;
 
 import java.io.IOException;
-import ro.uaic.info.mdvsp.Config;
 import ro.uaic.info.mdvsp.Instance;
 import ro.uaic.info.mdvsp.Solution;
 import ro.uaic.info.mdvsp.gurobi.Model3D;
 import ro.uaic.info.mdvsp.gurobi.ModelRelaxed;
-import ro.uaic.info.mdvsp.repair.RepairModel;
 import static ro.uaic.info.mdvsp.gen.GeneratorType.*;
+import ro.uaic.info.mdvsp.repair.RepairModel;
 
 /**
  *

@@ -21,8 +21,7 @@ import java.util.LinkedList;
 import ro.uaic.info.mdvsp.Instance;
 import ro.uaic.info.mdvsp.Solution;
 import ro.uaic.info.mdvsp.gurobi.Model3D;
-import ro.uaic.info.mdvsp.gurobi.ModelRelaxed;
-import ro.uaic.info.mdvsp.repair.RepairModel;
+
 
 /**
  * Generates a random MDVSP createInstance.

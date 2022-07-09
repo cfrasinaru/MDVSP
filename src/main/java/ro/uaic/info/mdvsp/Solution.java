@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2020 Cristian Frasinaru
+ * Copyright (C) 2022 Ecosoft Iasi - All Rights Reserved.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
  */
 package ro.uaic.info.mdvsp;
 
@@ -362,5 +363,4 @@ public class Solution {
         return model;
     }
 
-    
 }

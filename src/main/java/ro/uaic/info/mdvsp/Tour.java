@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2022 Ecosoft Iasi - All Rights Reserved.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ */
 package ro.uaic.info.mdvsp;
 
 import java.io.IOException;
@@ -88,23 +92,23 @@ public class Tour extends ArrayList<Integer> implements Comparable<Tour> {
     }
 
     /**
-     * 
+     *
      * @param costMatrix
-     * @return 
+     * @return
      */
     public int pullOutCost(int[][] costMatrix) {
         return costMatrix[first()][second()];
     }
 
     /**
-     * 
+     *
      * @param costMatrix
-     * @return 
+     * @return
      */
     public int pullInCost(int[][] costMatrix) {
         return costMatrix[lastButOne()][last()];
     }
-    
+
     /**
      *
      * @param amount
@@ -198,7 +202,7 @@ public class Tour extends ArrayList<Integer> implements Comparable<Tour> {
         }
         return sb.toString();
     }
-    
+
     @Override
     public int compareTo(Tour other) {
         if (this.id != 0 && other.id != 0) {

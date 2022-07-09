@@ -1,6 +1,5 @@
 package ro.uaic.info.mdvsp;
 
-import ro.uaic.info.mdvsp.repair.RepairModel;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,6 +16,7 @@ import ro.uaic.info.mdvsp.bb2.Model_d_heuristic;
 import ro.uaic.info.mdvsp.greedy.GreedyModel1;
 import ro.uaic.info.mdvsp.gurobi.*;
 import ro.uaic.info.mdvsp.ort.ModelRelaxedOrt;
+import ro.uaic.info.mdvsp.repair.RepairModel;
 
 /**
  *

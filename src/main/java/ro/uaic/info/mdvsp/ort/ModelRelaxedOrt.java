@@ -52,7 +52,6 @@ public class ModelRelaxedOrt extends Model {
             for (int j = 0; j < n + m; j++) {
                 if (cost[i][j] >= 0) {
                     x[i][j] = solver.makeIntVar(0, 1, "x[" + i + "," + j + "]");
-                    //x[i][j] = solver.makeNumVar(0, 1, "x[" + i + "," + j + "]");
                 }
             }
         }
